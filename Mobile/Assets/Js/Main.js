@@ -453,5 +453,5 @@ $(function () {
         };
     }
 
-    fastClick();
+    //fastClick();
 })
