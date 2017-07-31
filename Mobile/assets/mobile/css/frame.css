@@ -1,0 +1,119 @@
+﻿
+/*#region 多屏幕适配*/
+html {
+    font-size: 50px !important;
+    font-family: sans-serif;
+}
+/*终端设备360*/
+@media (min-device-width : 360px) {
+    html {
+        font-size: 48px !important;
+    }
+}
+/*iphone 6*/ 
+@media (min-device-width : 375px) {
+    html {
+        font-size: 50px !important;
+    }
+}
+/*iphone6 plus*/ 
+@media (min-device-width : 414px) {
+    html {
+        font-size: 55.2px !important;
+    }
+}
+/*#endregion*/
+/*#region 全局基础元素设置*/
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /*-webkit-user-select: none;*/
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif
+}
+
+body { 
+    font-size:.48rem;
+}
+
+a {
+    text-decoration: none;
+}
+/*#endregion*/
+
+/*#region 标题导航栏*/
+
+.titlebar {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: .88rem;
+    padding-right: .2rem;
+    padding-left: .2rem;
+    border-bottom: 0;
+    background-color: #f7f7f7;
+    line-height: .88rem;
+    /*-webkit-box-shadow: 0 0 1px rgba(0,0,0,.85);
+    box-shadow: 0 0 1px rgba(0,0,0,.85);*/
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+    .titlebar > .title {
+        font-size:.4rem;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+        color: #333333;
+        z-index: 1000;
+        top: 0;
+    }
+    .titlebar > .pull-left, .titlebar > .pull-right {
+        display:block;
+        font-size: .35rem;
+        height:  .88rem;
+        line-height: .88rem;
+        top: 0;
+        padding: 0;
+        border: 0;
+        z-index: 1001;
+        position: absolute;
+        color: #007aff;
+    }
+    
+    .titlebar > .pull-left {
+       
+       
+       
+    }
+
+        .titlebar > .pull-left:before {
+           
+        }
+
+    .titlebar > .pull-right {
+     right:0; 
+    }
+
+
+
+/*#endregion*/
+
+/*#region 主体内容部分*/
+.main-content {
+    border-top: 4.5rem solid transparent;
+    /*border-bottom: 56px solid transparent;*/
+}
+
+.content {
+    padding: .2rem;
+}
+
+/*#endregion*/

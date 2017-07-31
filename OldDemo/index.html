@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+	<meta charset="utf-8" />
+
+    <link href="Assets/Css/main.css" rel="stylesheet" />
+    <link href="Assets/Css/pop.css" rel="stylesheet" />
+    <link href="Assets/Css/business.css" rel="stylesheet" />
+    <link href="Assets/Css/icons.css" rel="stylesheet" />
+    <script src="Assets/Js/zepto.min.js"></script>
+
+    <script src="Assets/Js/IScroll/iscroll-probe.js"></script>
+    <script src="Assets/Js/Main.js"></script>
+
+    <!--<script src="Assets/Js/IScroll/iscroll.js"></script>-->
+    <style>
+      
+    </style>
+</head>
+<body>
+    <header class="titlebar">
+        <h1 class="title">手持终端</h1>
+        <span class="pull-right">
+            <span class="icon icon-person"></span>
+        </span>
+        <!--<span class="pull-left">返回</span>-->
+    </header>
+    <section class="main-content">
+        <div id="bannerWarpper" class="banner">
+             <div class="scroll">
+                 <div class="slide" style="background-color: #571c94; background-image:linear-gradient(135deg, #9f82bd 0%, #2eb6c3 100%)"></div>
+                 <div class="slide" style="background-image: linear-gradient(135deg, #2eb6c3 0%, #c262d4 100%)"></div>
+                 <div class="slide" style="background-image: linear-gradient(135deg, #571c94 0%, #e609cf 100%);"></div>
+                 <div class="slide" style="background:#a68a10;"></div>
+             </div>
+            <div id="indicator" class="iScrollLoneScrollbar">
+                <div id="dotty" style=""></div>
+                <ul class="dots">
+                  
+                </ul>
+            </div>
+        </div>
+        <div class="grids">
+            <a href="javascript:void(0)" class="grid">
+                <div class="grid-icon">
+                    <span class="icon icon-locked"></span>
+                </div>
+                <p class="grid-label">物料装箱</p>
+            </a>
+            <a href="javascript:void(0)" class="grid">
+                <div class="grid-icon">
+                    <span class="icon icon-flag"></span>
+                </div>
+                <p class="grid-label">巡检</p>
+            </a>
+            <a href="javascript:void(0)" class="grid">
+                <div class="grid-icon">
+                    <span class="icon icon-navigate"></span>
+                </div>
+                <p class="grid-label">检验</p>
+            </a>
+            <a href="javascript:void(0)" class="grid">
+                <div class="grid-icon">
+                    <span class="icon icon-phone"></span>
+                </div>
+                <p class="grid-label">设备维护</p>
+            </a>
+            <a href="javascript:void(0)" class="grid">
+                <div class="grid-icon">
+                    <span class="icon icon-home"></span>
+                </div>
+                <p class="grid-label">收料确认</p>
+            </a>
+            <a href="taskConfirmList.html" class="grid">
+                <div class="grid-icon">
+                    <span class="icon icon-camera"></span>
+                </div>
+                <p class="grid-label">任务确认</p>
+            </a>
+            <a href="javascript:void(0)" onclick="test()" class="grid">
+                <div class="grid-icon">
+                    <span class="icon icon-chat"></span>
+                </div>
+                <p class="grid-label">任务汇报</p>
+            </a>
+            <a href="javascript:void(0)" onclick="test2()" class="grid">
+                <div class="grid-icon">
+                    <span class="icon icon-chat"></span>
+                </div>
+                <p class="grid-label">任务汇报</p>
+            </a>
+            <a href="mui/qrcode/barcode.html"   class="grid">
+                <div class="grid-icon">
+                    <span class="icon icon-chat"></span>
+                </div>
+                <p class="grid-label">扫码</p>
+            </a>
+
+        </div>
+    </section>
+
+  
+</body>
+</html>
+<script>
+
+   // var myScroll;
+    $(function () {
+
+        $('#bannerWarpper').SetBanner();
+
+    })
+   
+    $.fn.SetBanner = function () {
+        var $items = $(this).find('.slide');
+        $(this).find('.scroll').css('width', ($items.length * 100) + '%');
+        var $dots = $(this).find('.iScrollLoneScrollbar ul.dots');
+        
+        var $dotWidth=$(this).find('.iScrollLoneScrollbar').children().first().width();
+
+        var mgl = ($(this).find('.iScrollLoneScrollbar').width() - $dotWidth) / ($items.length - 1);// - $dotWidth);
+
+        for (var i = 0; i < $items.length; i++) {
+            var $li = $('<li/>').attr('style', '').appendTo($dots);
+           
+            if (i == $items.length - 1) {
+                $li.css('right', '0px');
+            } else {
+                $li.css('left', (mgl * i).toFixed()+"px");
+            }
+        }
+
+        //滚动
+        var myScroll = new IScroll(this[0], {
+            scrollX: true,
+            scrollY: false,
+            momentum: false,
+            snap: true,
+            snapSpeed: 400,
+            keyBindings: true,
+            indicators: {
+                el: $(this).find('.iScrollLoneScrollbar')[0],
+                resize: false
+            }
+        });
+        return myScroll;
+    }
+
+
+   
+    function test() {
+        //top.plus.storage.setItem("serverPath","123111")
+        //top.plus.webview.currentWebview().hide();
+       // plus.webview.getLaunchWebview().show("slide-out-right");
+        top.plus.webview.currentWebview().hide("slide-out-right");
+        //alert(1);
+        return;
+        ////top.plus.webview.currentWebview().back();
+        //var z = top.plus.webview.currentWebview();
+
+        //$.Toast(z + "")
+        //z.go("http://www.baidu.com");
+        var ss = "";
+        var cw = top.plus.webview.currentWebview();
+        for (var k in cw) {
+           // ss += k + " " + cw[k] + ";";
+            if (k[0]!="_")
+             ss += k + ";";
+        }
+        plus.webview.currentWebview().hide()
+    }
+    function test2() {
+        location.reload();
+    }
+</script>
