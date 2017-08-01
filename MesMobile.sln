@@ -20,6 +20,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OldDemo", "OldDemo\", "{640
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "16203"
+		SlnRelativePath = "OldDemo\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Mobile", "Mobile\", "{9A2FEB0F-637D-45B3-ADBF-B500563E7D77}"
@@ -40,6 +41,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Mobile", "Mobile\", "{9A2FE
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "16206"
+		SlnRelativePath = "Mobile\"
 	EndProjectSection
 EndProject
 Global
