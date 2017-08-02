@@ -1,1 +1,166 @@
-﻿ 
+﻿/*#region 登录*/
+.logo {
+    text-align:center;
+    margin-top:1rem;
+}
+.logo>img {
+    width:6rem;
+    
+}
+.loginBox {
+    padding:1rem .5rem;
+}
+.login-userName,.login-password,.login-submit {
+    position:relative;
+    margin-top:.5rem;
+}
+.login-userName > .userIcon,.login-password>.passwordIcon {
+    position: absolute;
+    top:50%;
+    margin-top:-.25rem;
+    color:#aaa;
+    margin-left:.2rem;
+   
+}
+.login-userName > input,.login-password >input,.btn-login{
+     display:block;
+    width:100%;
+    border:1px solid #ccc;
+    border-radius:.45rem;
+    height:.9rem;
+    padding:0 .8rem;
+}
+    .login-userName > input:focus ,.login-password >input:focus{
+        border-color:#0f87e6
+    }
+        .login-userName > input:focus ~ .userIcon ,.login-password > input:focus ~ .passwordIcon{
+            color:#0f87e6
+        }
+.btn-login {
+   outline: none !important;
+}
+
+
+/*提示框字体*/
+.login-userName > input:focus::-webkit-input-placeholder, .login-password > input:focus::-webkit-input-placeholder{
+  /* WebKit browsers */
+  /*参考 http://www.cnblogs.com/shineLh/p/6856427.html */
+  color:#0f87e6
+}
+ 
+/*#endregion*/
+
+/*#region 首页*/
+ /*#region banner*/
+ .banner {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+    /*bannel 滚动项*/
+    .banner .scroll {
+        display: flex;
+        width: 400%;
+        overflow: hidden;
+    }
+/*bannel 滚动成员*/
+.slide {
+    width: 100%;
+    -webkit-box-flex: 1;
+    height: 150px;
+}
+/*bannel 位置指示标*/
+.banner .iScrollLoneScrollbar {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    height: 10px;
+}
+    /*bannel 当前位置指示标*/
+    .banner .iScrollLoneScrollbar > div:first-child {
+        position: absolute;
+        width: 11px;
+        height: 11px;
+        border-radius: 5.5px;
+        z-index: 2000;
+        background-color: rgba(76, 217, 100, 1);
+    }
+    /*bannel 所有位置指示标*/
+    .banner .iScrollLoneScrollbar ul.dots {
+        list-style: none;
+        width: 100%;
+        position: relative;
+    }
+        .banner .iScrollLoneScrollbar ul.dots > li {
+            position: absolute;
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #000;
+            opacity: .2;
+            z-index: 1000;
+        }
+
+ /*#endregion*/
+
+ /*#region 功能菜单*/
+.functionArea {
+    margin-top:.2rem;
+    background:#fff;
+    margin-bottom:1rem;
+}
+.fuctionTitle {
+    border:1px solid #ccc;
+    border-width:1px 0;
+    font-size:.32rem;
+    color:#888;
+    padding:.2rem .2rem;
+    font-weight:400;
+}
+.functionList.list > .item > .item-icon>img {
+    width:1.2rem;
+}
+.functionList.list > .item > .item-content h2 {
+    font-size:.35rem;
+    color:#222;
+    font-weight:normal;
+    padding:.15rem 0;
+}
+.functionList.list > .item > .item-content  p {
+    font-size:.25rem;
+    padding:.05rem 0;
+    color:#888;
+}
+
+ /*#endregion*/
+
+/*#endregion*/
+
+/*#region 任务列表*/
+.task-buttons-tab {
+    /*display:inline-block;*/
+    /*width:auto;*/
+    display: inline-flexbox;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+}
+    .task-buttons-tab>.btn {
+        border-color:#fff;
+        background:#0894ec;
+        color:#fff;
+        display:inline-block;
+         width:auto;
+    }
+        .task-buttons-tab>.btn.active {
+            background:#fff;
+            color:#0894ec;
+           
+            
+        }
+/*#endregion*/

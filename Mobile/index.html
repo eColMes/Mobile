@@ -4,17 +4,129 @@
     <meta charset="utf-8" />
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, user-scalable=no">
+ 
+
+    <link href="assets/mobile/font/iconfont.css" rel="stylesheet" />
     <link href="assets/mobile/css/frame.css" rel="stylesheet" />
-   
+    <link href="assets/mobile/css/business.css" rel="stylesheet" />
+     
+    <script src="assets/mobile/js/zepto.min.js"></script>
+    <script src="assets/mobile/js/plugins/IScroll/iscroll-probe.js"></script>
+    <script src="assets/mobile/js/Main.js"></script>
 </head>
 
-<body style="font-size:10px">
+<body >
 
     <header class="titlebar">
-        <h1 class="title">登录</h1>
+        <h1 class="title">手持终端</h1>
     </header>
 
+    <section class="main-content">
+
      
+
+        <div id="bannerWarpper" class="banner">
+            <div class="scroll">
+                <div class="slide" style="background-color: #571c94; background-image:linear-gradient(135deg, #9f82bd 0%, #2eb6c3 100%)"></div>
+                <div class="slide" style="background-image: linear-gradient(135deg, #2eb6c3 0%, #c262d4 100%)"></div>
+                <div class="slide" style="background-image: linear-gradient(135deg, #571c94 0%, #e609cf 100%);"></div>
+                <div class="slide" style="background:#a68a10;"></div>
+            </div>
+            <div id="indicator" class="iScrollLoneScrollbar">
+                <div id="dotty" style=""></div>
+                <ul class="dots"></ul>
+            </div>
+        </div>
+        <div class="functionArea">
+            <h1 class="fuctionTitle">常用功能</h1>
+            <!--<div class="functionList">
+                <div class="function">
+                    <div class="icon">
+                        <img src="assets/mobile/imgs/123.png" />
+                    </div>
+                    <div class="function-content">
+                        <a class="navigate-right">
+                           
+                        </a>
+                    </div>
+                </div>
+            </div>-->
+            <div class="list functionList">
+                <div class="item">
+                    <div class="item-icon">
+                        <img src="assets/mobile/imgs/123.png" />
+                    </div>
+                    <div class="item-content navigate-right">
+                        <h2>任务汇报</h2>
+                        <p>用于查看任务相关工作</p>
+                    </div>
+                </div>
+                <div class="item" style="background:#ccc;margin-top:0;border:0">
+                    <div class="item-icon">
+                        <img src="assets/mobile/imgs/123.png" />
+                    </div>
+                    <a class="item-content navigate-right" href="taskList.html">
+                        <h2>任务汇报</h2>
+                        <p>用于查看任务相关工作</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <div class="item-icon">
+                        <img src="assets/mobile/imgs/123.png" />
+                    </div>
+                    <div class="item-content navigate-right">
+                        <h2>任务汇报</h2>
+                        <p>用于查看任务相关工作</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+   
    
 </body>
 </html>
+<script>
+    $(function () {
+        $.fn.SetBanner = function () {
+            var $items = $(this).find('.slide');
+            $(this).find('.scroll').css('width', ($items.length * 100) + '%');
+            var $dots = $(this).find('.iScrollLoneScrollbar ul.dots');
+
+            var $dotWidth = $(this).find('.iScrollLoneScrollbar').children().first().width();
+
+            var mgl = ($(this).find('.iScrollLoneScrollbar').width() - $dotWidth) / ($items.length - 1);// - $dotWidth);
+
+            for (var i = 0; i < $items.length; i++) {
+                var $li = $('<li/>').attr('style', '').appendTo($dots);
+
+                if (i == $items.length - 1) {
+                    $li.css('right', '0px');
+                } else {
+                    $li.css('left', (mgl * i).toFixed() + "px");
+                }
+            }
+
+            //滚动
+            var myScroll = new IScroll(this[0], {
+                scrollX: true,
+                scrollY: false,
+                momentum: false,
+                snap: true,
+                snapSpeed: 400,
+                keyBindings: true,
+                indicators: {
+                    el: $(this).find('.iScrollLoneScrollbar')[0],
+                    resize: false
+                }
+            });
+            return myScroll;
+        }
+
+        $('#bannerWarpper').SetBanner();
+
+    })
+
+</script>

@@ -23,13 +23,14 @@ html {
     }
 }
 /*#endregion*/
+
 /*#region 全局基础元素设置*/
 
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     /*-webkit-user-select: none;*/
-    outline: 0;
+    outline: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-tap-highlight-color: transparent;
     margin: 0;
@@ -38,12 +39,15 @@ html {
 }
 
 body { 
-    font-size:.48rem;
+    font-size:.6rem;
+    background:#f0eff5
 }
 
 a {
     text-decoration: none;
 }
+/*火狐去除虚线框*/
+ ::-moz-focus-inner{outline:none;}
 /*#endregion*/
 
 /*#region 标题导航栏*/
@@ -57,7 +61,7 @@ a {
     padding-right: .2rem;
     padding-left: .2rem;
     border-bottom: 0;
-    background-color: #f7f7f7;
+    background-color: #0f87e6;
     line-height: .88rem;
     /*-webkit-box-shadow: 0 0 1px rgba(0,0,0,.85);
     box-shadow: 0 0 1px rgba(0,0,0,.85);*/
@@ -71,7 +75,7 @@ a {
         display: block;
         text-align: center;
         white-space: nowrap;
-        color: #333333;
+        color: #fff;
         z-index: 1000;
         top: 0;
     }
@@ -108,7 +112,7 @@ a {
 
 /*#region 主体内容部分*/
 .main-content {
-    border-top: 4.5rem solid transparent;
+    border-top: .88rem solid transparent;
     /*border-bottom: 56px solid transparent;*/
 }
 
@@ -116,4 +120,250 @@ a {
     padding: .2rem;
 }
 
+/*#endregion*/
+
+
+/*#region 字体*/
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:.48rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position:relative;
+  height:.48rem;
+  width:.48rem;
+
+}
+    .iconfont:before {
+         height:.48rem;
+         width:.48rem;
+        position:absolute;
+        top:0;
+        left:0;
+    }
+/*#endregion*/
+
+/*#region 按钮 button*/
+.btn {
+    font-weight: 400;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+    padding: .12rem .24rem;
+    -webkit-transition: all;
+    transition: all;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+    text-align: center;
+    vertical-align: top;
+    white-space: nowrap;
+    color: #333;
+    border: 1px solid #ccc;
+    font-size:.32rem;
+}
+
+/*#region btn 颜色*/
+/*按钮颜色样式*/
+.btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+    .btn:active {
+        color: #fff;
+        background: #ccc;
+        outline: none;
+    }
+
+.btn-info {
+    background: #0f87e6;
+    border-color: #0f87e6;
+    color: #fff;
+}
+
+    .btn-info:active {
+        color: #fff;
+        background: #0a5c9c;
+        border-color: #0a5c9c;
+    }
+
+.btn-success {
+    border-color: #1AAD19;
+    background-color: #1AAD19;
+    color: #FFFFFF;
+}
+
+    .btn-success:active {
+        background-color: #20941f;
+        border-color: #20941f;
+        color: white;
+    }
+
+.btn-warning {
+    color: white;
+    border-color: #ff6600;
+    background-color: #ff6600;
+}
+
+    .btn-warning:active {
+        color: white;
+        background-color: #cc5200;
+        border-color: #cc5200;
+    }
+
+.btn-danger {
+    color: white;
+    border-color: #f6383a;
+    background-color: #f6383a;
+}
+
+    .btn-danger:active {
+        background-color: #b00609;
+        border-color: #f00b0d;
+    }
+
+.btn-royal {
+    color: #fff;
+    border: 1px solid #7641e2;
+    background-color: #7641e2;
+}
+
+    .btn-royal:active {
+        color: #fff;
+        border: 1px solid #3b28a3;
+        background-color: #3b28a3;
+    }
+/*#endregion*/
+/*#endregion*/
+
+/*#region 右侧 箭头*/
+/*右侧导航*/
+.navigate-right {
+    display:block;
+}
+.navigate-right:after {
+    font-size: inherit;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    text-decoration: none;
+    color: #bbb;
+    -webkit-font-smoothing: antialiased;
+    right: .3rem; 
+     font-family:"iconfont";
+    content: "\e62b"; 
+    font-size: .32rem;
+    margin-top:-.16rem;
+}
+/*#endregion*/
+
+/*#region 列表*/
+.list {
+    background-color:#fff;
+}
+    .list > .item {
+        display:flexbox;
+        display: flex;
+        padding:.22rem .3rem;
+        position: relative;
+        overflow: hidden;
+        align-items: center;
+    }
+        .list > .item:active {
+            background-color:#ccc;
+        }
+        .list > .item > .item-icon {
+            flex:none;
+            margin-right:.2rem;
+            align-items: center;
+            display: flex;
+        }
+        .list > .item > .item-content {
+            flex:1;
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin: -0.22rem -0.3rem;
+            padding: inherit;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: inherit;
+            /*padding:.22rem .6rem;*/
+        }
+         .list > .item>.item-content:before {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 15px;
+            height: 1px;
+            content: '';
+            /*-webkit-transform: scaleY(.5);
+            transform: scaleY(.5);*/
+            background-color: #c8c7cc;
+        }
+        .list > .item:last-child > .item-content:before {
+            display:none;
+        }
+/*#endregion*/
+
+/*#region tab*/
+.buttons-tab {
+    -webkit-align-self: center;
+    align-self: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-lines: single;
+    -moz-box-lines: single;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.buttons-tab .btn:first-child {
+    border-radius: 0.1rem 0 0 0.1rem;
+    margin-left: 0;
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+.buttons-tab .btn:last-child {
+    border-radius: 0 0.1rem 0.1rem 0;
+}
+.buttons-tab .btn.active {
+    background-color: #0894ec;
+    color: white;
+    z-index: 90;
+}
+.buttons-tab .btn {
+    border-radius: 0 0 0 0;
+    margin-left: -1px;
+    width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    border-color: #fff;
+    
+    color: #0894ec;
+}
+
+
+.tabs {
+    display:flex;
+   
+    overflow:hidden;
+    width:100%;
+     /*width:300%;*/
+    /*display:block*/
+}
+    .tabs > .tab {
+        width:100%;
+        flex:none;
+         /*display: block;*/
+         /*float: left;*/
+    }
+  
 /*#endregion*/
