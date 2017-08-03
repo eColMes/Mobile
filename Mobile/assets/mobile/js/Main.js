@@ -408,8 +408,8 @@ $(function () {
     $('body').on('click', '.buttons-tab .tab-link', function () {
         var $this = $(this);
         var id = $this.attr("for");
-        var $container = $(this).parents('.tab-container');
-        var $tabs = $container.find(".tabs .tab");
+        var $container = $("#"+id).parent();
+        var $tabs = $container.children();
         $tabs.each(function () {
             if ($(this).attr("id") == id) {
                 $(this).addClass("active");

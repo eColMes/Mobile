@@ -141,7 +141,8 @@
 
 /*#endregion*/
 
-/*#region 任务列表*/
+/*#region 任务列表导航*/
+
 .task-buttons-tab {
     /*display:inline-block;*/
     /*width:auto;*/
@@ -159,8 +160,79 @@
     }
         .task-buttons-tab>.btn.active {
             background:#fff;
-            color:#0894ec;
-           
-            
+            color:#0894ec; 
         }
+.task- > .search {
+    display:block;
+}
+/*#endregion*/
+
+/*#region 任务列表*/
+.taskList > .taskItem {
+    margin-top:10px;
+    background:#fff;
+    padding:.2rem;
+    position:relative;
+    display:block;
+}
+.taskList > .taskItem:active {
+     background:#ddd; 
+}
+.taskItem > .pgdid {
+    font-size:.4rem;
+    font-weight:400;
+}
+.taskItem > .material {
+    font-size:.3rem;
+    font-weight:normal;
+    color:#888;
+}
+.taskItem > .plantime {
+     font-size:.3rem;
+    font-weight:normal;
+    color:#888;
+    display:flex;
+}
+.taskItem > .plantime .starttime,.taskItem > .plantime .endtime{
+    padding-left:.3rem;
+}
+.taskItem > .plantime .starttime .lab{
+   color:#2d98e9
+}
+    .taskItem > .plantime .endtime .lab {
+        color:#cc3f3f
+    }
+      .taskItem > .proc {
+        position:absolute;
+        right:.3rem;
+        top:0;
+        z-index:10;
+        font-size:.3rem;
+        color:#fff;
+    }
+        .taskItem > .procbg{
+            position:absolute;
+            content:"";
+            width: 0;
+            height: 0;
+            border-top: 20px solid #EEB422;
+            border-right: 40px solid #EEB422;
+            border-left: 40px solid transparent;
+             border-bottom: 20px solid transparent;
+            top:0;
+            right:0;
+           z-index:9;
+        }
+/*#endregion*/
+
+
+/*#region 任务详情*/
+.task-detail-info {
+    color:#888; 
+}
+
+
+/*#region 时间轴*/
+
+/*#endregion*/
 /*#endregion*/
