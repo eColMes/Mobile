@@ -254,23 +254,30 @@
    
     
     <footer id="taskListButtons" class="bottomButtons active">
-        <button class="btn btn-block  btn-warning">任务确认</button>
-        <button class="btn btn-block  btn-warning">任务报警</button>
+        <a class="btn btn-block  btn-warning" onclick='$.Alert("123", "123123")'>任务确认</a>
+        <a id="btn-taskAlarm"  class="btn btn-block  btn-warning">任务报警</a>
         <div class="btn btn-block  btn-warning">
             其它
         </div>
-        <div class="menu active">
+        <!--<div class="menu active">
             <div class="btn">相关任务</div>
             <div class="btn">附件</div>
             <div class="btn">任务汇报</div>
             <div class="btn">任务汇报</div>
-        </div>
+        </div>-->
     </footer>
-   
-   
+  
+    <div style="margin-bottom:45px;">
+
+    </div>
 </body>
 </html>
-<script>
-    
 
+<script src="assets/mobile/js/taskFunction.js"></script>
+<script>
+    $('#btn-taskAlarm').click(function () {
+
+        taskFunctionBusiness.OpenPanel('taskConfirm.html');
+    })
+    
 </script>

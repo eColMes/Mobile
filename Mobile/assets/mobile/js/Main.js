@@ -57,6 +57,18 @@ $(function () {
         modalPreloaderTitle: '加载中',
         modalContainer: document.body
     }
+    var overlay;
+    if ($('.modal-overlay').length === 0) {
+        overlay = $('<div class="modal-overlay"></div>').appendTo($(defaults.modalContainer));
+        overlay.on("touchmove", function (e) { e.preventDefault(); }, false);
+    } else {
+        overlay = $('.modal-overlay');
+    }
+    $._addModalToModalContainer = function ($modal) {
+        overlay.before($modal);
+    }
+
+
     $.fn.animationEnd = function (callback) {
         // __dealCssEvent.call(this, ['webkitAnimationEnd', 'animationend'], callback);
         $(this).one({ "webkitTransitionEnd": "transitionend", })
@@ -67,7 +79,7 @@ $(function () {
         $(this).one("webkitTransitionEnd", callback).one("transitionend", callback);
         return this;
     };
-    $.Modal = function (params) {
+    $.Modal = function (params)  {
         params = params || {};
         var modalHTML = '';
         var buttonsHTML = '';
@@ -88,8 +100,8 @@ $(function () {
 
         var modal = $(_modalTemplateTempDiv).children();
 
-        $(defaults.modalContainer).append(modal[0]);
-
+        //$(defaults.modalContainer).append(modal[0]);
+        $._addModalToModalContainer(modal[0]);
         // Add events on buttons
         modal.find('.modal-button').each(function (index, el) {
             $(el).on('click', function (e) {
@@ -121,15 +133,7 @@ $(function () {
             });
         }
 
-        var overlay;
-        if (!isToast && !isPanel) {
-            if ($('.modal-overlay').length === 0) {
-                overlay = $('<div class="modal-overlay"></div>').appendTo($(defaults.modalContainer))
-            } else {
-                overlay = $('.modal-overlay');
-            }
-
-        }
+       
 
         //确保样式已经应用
         var clientLeft = modal[0].clientLeft;
@@ -147,6 +151,7 @@ $(function () {
         if (typeof cb === 'function') {
             cb.call(this);
         }
+        modal.on("touchmove", function (e) { e.preventDefault(); }, false);
         return modal;
     }
     $.CloseModal = function (modal) {
@@ -211,56 +216,7 @@ $(function () {
             ]
         });
     };
-    $.Actions = function (params) {
-        var modal, groupSelector, buttonSelector;
-        params = params || [];
-
-        if (params.length > 0 && !$.isArray(params[0])) {
-            params = [params];
-        }
-        var modalHTML;
-        var buttonsHTML = '';
-        for (var i = 0; i < params.length; i++) {
-            for (var j = 0; j < params[i].length; j++) {
-                if (j === 0) buttonsHTML += '<div class="actions-modal-group">';
-                var button = params[i][j];
-                var buttonClass = button.label ? 'actions-modal-label' : 'actions-modal-button';
-                if (button.bold) buttonClass += ' actions-modal-button-bold';
-                if (button.color) buttonClass += ' color-' + button.color;
-                if (button.bg) buttonClass += ' bg-' + button.bg;
-                if (button.disabled) buttonClass += ' disabled';
-                buttonsHTML += '<span class="' + buttonClass + '">' + button.text + '</span>';
-                if (j === params[i].length - 1) buttonsHTML += '</div>';
-            }
-        }
-        modalHTML = '<div class=" actions-modal">' + buttonsHTML + '</div>';
-        _modalTemplateTempDiv.innerHTML = modalHTML;
-        modal = $(_modalTemplateTempDiv).children();
-        $(defaults.modalContainer).append(modal[0]);
-        groupSelector = '.actions-modal-group';
-        buttonSelector = '.actions-modal-button';
-
-        var groups = modal.find(groupSelector);
-        groups.each(function (index, el) {
-            var groupIndex = index;
-            $(el).children().each(function (index, el) {
-                var buttonIndex = index;
-                var buttonParams = params[groupIndex][buttonIndex];
-                var clickTarget;
-                if ($(el).is(buttonSelector)) clickTarget = $(el);
-                // if (toPopover && $(el).find(buttonSelector).length > 0) clickTarget = $(el).find(buttonSelector);
-
-                if (clickTarget) {
-                    clickTarget.on('click', function (e) {
-                        if (buttonParams.close !== false) $.CloseModal(modal);
-                        if (buttonParams.onClick) buttonParams.onClick(modal, e);
-                    });
-                }
-            });
-        });
-        $.OpenModal(modal);
-        return modal[0];
-    }
+  
     $.Picker = function (params, cb) {
         var modalHTML;
         var buttonsHTML = '<div class="actions-modal-group"><span class="actions-modal-label">请选择</span>';
@@ -271,7 +227,8 @@ $(function () {
         modalHTML = '<div class=" actions-modal">' + buttonsHTML + '</div>';
         _modalTemplateTempDiv.innerHTML = modalHTML;
         modal = $(_modalTemplateTempDiv).children();
-        $(defaults.modalContainer).append(modal[0]);
+        //$(defaults.modalContainer).append(modal[0]);
+        $._addModalToModalContainer(modal[0]);
 
         groupSelector = '.actions-modal-group';
         buttonSelector = '.actions-modal-button';
@@ -297,7 +254,8 @@ $(function () {
         }
         html += "</div></div>";
 
-        $model = $(html).appendTo($(defaults.modalContainer));
+        $model = $(html)//.appendTo($(defaults.modalContainer));
+        $._addModalToModalContainer($model)
         //
         var width = $model.width();
         $.OpenModal($model);
@@ -315,27 +273,34 @@ $(function () {
         }
     })
 
-    $.PopOver = function (params) {
-
-
+    $.PopUp = function (params) {
+        var _default = {
+            content: "",
+            styles:"",
+        }
+        var html = '<div class="modal modal-pop"/>'
+        $.OpenModal
     }
     $.Loading = function (msg) {
-
-        if ($('.modal-preloader-overlay').length === 0) {
-            $('<div class="modal-preloader-overlay"></div>').appendTo($(defaults.modalContainer));
+        var _default = {
+            msg: "",
+            isNeedOverLay: ""
         }
+        
 
         if ($('.modal-preloader')[0]) return;
         var $load = $('<div class="modal-preloader"><span class="loading"></span><span class="loadingText"></span></div>');
         if (msg) {
             $load.find('.loadingText').text(msg);
         }
-        $('.modal-preloader-overlay').show();
-        return $load.appendTo($(defaults.modalContainer));
+        //$('.modal-preloader-overlay').show();
+        $._addModalToModalContainer($load);
+        return $load;
+        //return $load.appendTo($(defaults.modalContainer));
         //$(defaults.modalContainer).append('<div class="preloader-indicator-overlay"></div><div class="modal-preloader"><span class="loading"></span><span class="loadingText"></span></div>');
     }
     $.HideLoading = function ($loading) {
-        $('.modal-preloader-overlay').hide();
+       // $('.modal-preloader-overlay').hide();
         if($loading)
             $loading.remove();
     };
@@ -352,36 +317,47 @@ $(function () {
     }
 
     $.OpenPanel = function (params) {
-        if (typeof params == "string") {
-            params = { url: params };
-        }
-        _default = {
+       var  _default = {
             url: "",
             content: "",
-            animate: "fromLeftIn"
+            css: "fromLeftIn"
         }
-        var $html = $('<div class="modal modal-panel" > </div>');
-        $model = $html.appendTo($(defaults.modalContainer));
-        //
+        if (typeof params == "string") {
+            params = { url: params };
+        } else {
+            params = $.extend(_default, params);
+        }
+       
+        var $model = $('<div class="modal modal-panel ' + params.css + '" > </div>');
+          
+        $._addModalToModalContainer($model);
+
         var ld = $.Loading();
+        var drawHtml = function (html) {
+            $model.html(html);
+            var width = $model.width();
+            $.OpenModal($model).transitionEnd(function () {
+                $.HideLoading(ld)
+            });
+
+            $model.find('.close-panel-btn').on('click', function () {
+                $.CloseModal($model);
+            })
+        }
+        //
+        if (params.content) {
+            drawHtml(params.content);
+            return;
+        }
+
+      
+       
         setTimeout(function () {
             $.ajax({
                 url: params.url + "#" + Math.random(),
                 type: "get",
                 success: function (text) {
-
-
-                    $html.html(text);
-                    var width = $model.width();
-                    $.OpenModal($model).transitionEnd(function () {
-                        $.HideLoading(ld)
-                    });
-
-                    $model.find('.close-panel-btn').on('click', function () {
-                        $.CloseModal($model);
-                    })
-
-
+                    drawHtml(text);
                 }, error: function (xhr) {
                     //$.HideLoading(ld)
                 }
@@ -402,7 +378,14 @@ $(function () {
 
    
 })
-
+$(function () {
+    //$('body').on('touchmove', '.modal', function (e) {
+    //    e.preventDefault();
+    //}).on('touchstart', '.modal-overlay', function (e) {
+    //    e.preventDefault();
+    //})
+})
+ 
 $(function () {
     //tab
     $('body').on('click', '.buttons-tab .tab-link', function () {
