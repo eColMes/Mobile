@@ -232,7 +232,13 @@
 }
 
 
-/*#region 时间轴*/
 
 /*#endregion*/
+
+/*#region 人员资质*/
+.taskConfirm-ryzz {
+    font-size: .32rem;
+    padding: .32rem .22rem;
+    color: #FF703B;
+}
 /*#endregion*/

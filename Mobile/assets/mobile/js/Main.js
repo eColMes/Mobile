@@ -31,6 +31,28 @@ $(function () {
 * 弹出层设置
 */
 $(function () {
+    /**
+ * ModalHelper helpers resolve the modal scrolling issue on mobile devices
+ * https://github.com/twbs/bootstrap/issues/15852
+ * requires document.scrollingElement polyfill https://github.com/yangg/scrolling-element
+ */
+    var ModalHelper = (function (bodyCls) {
+        var scrollTop;
+        return {
+            afterOpen: function () {
+                scrollTop = document.scrollingElement.scrollTop;
+                document.body.classList.add(bodyCls);
+                document.body.style.top = -scrollTop + 'px';
+            },
+            beforeClose: function () {
+                document.body.classList.remove(bodyCls);
+                // scrollTop lost after set position:fixed, restore it back.
+                document.scrollingElement.scrollTop = scrollTop;
+            }
+        };
+    })('modal-open');
+
+
     function __dealCssEvent(eventNameArr, callback) {
         var events = eventNameArr,
             i, dom = this;// jshint ignore:line
@@ -151,7 +173,8 @@ $(function () {
         if (typeof cb === 'function') {
             cb.call(this);
         }
-        modal.on("touchmove", function (e) { e.preventDefault(); }, false);
+        // modal.on("touchmove", function (e) { e.preventDefault(); }, false);
+        ModalHelper.afterOpen();
         return modal;
     }
     $.CloseModal = function (modal) {
@@ -169,6 +192,7 @@ $(function () {
             $('.modal-overlay').removeClass('modal-overlay-visible');
         }
         modal.removeClass('modal-in').addClass('modal-out').transitionEnd(function (e) {
+            ModalHelper.beforeClose();
             modal.remove();
             //if (modal.hasClass('modal-out')) modal.trigger('closed');
             //else modal.trigger('opened');
@@ -187,6 +211,7 @@ $(function () {
             //}
         });
         setTimeout(function () {
+            ModalHelper.beforeClose();
             modal.remove();
         },100)
     }
@@ -408,36 +433,45 @@ $(function () {
 })
 
 /*fastClick*/
+//$(function () {
+//    function fastClick() {
+//        var supportTouch = function () {
+//            try {
+//                document.createEvent("TouchEvent");
+//                return true;
+//            } catch (e) {
+//                return false;
+//            }
+//        }();
+//        var _old$On = $.fn.on;
+
+//        $.fn.on = function () {
+//            if (/click/.test(arguments[0]) && typeof arguments[1] == 'function' && supportTouch) { // 只扩展支持touch的当前元素的click事件
+//                var touchStartY, callback = arguments[1];
+//                _old$On.apply(this, ['touchstart', function (e) {
+//                    touchStartY = e.changedTouches[0].clientY;
+//                }]);
+//                _old$On.apply(this, ['touchend', function (e) {
+//                    if (Math.abs(e.changedTouches[0].clientY - touchStartY) > 10) return;
+
+//                    e.preventDefault();
+//                    callback.apply(this, [e]);
+//                }]);
+//            } else {
+//                _old$On.apply(this, arguments);
+//            }
+//            return this;
+//        };
+//    }
+
+//    fastClick();
+//})
+
+
+/*lookup 子页面弹出*/
+
 $(function () {
-    function fastClick() {
-        var supportTouch = function () {
-            try {
-                document.createEvent("TouchEvent");
-                return true;
-            } catch (e) {
-                return false;
-            }
-        }();
-        var _old$On = $.fn.on;
-
-        $.fn.on = function () {
-            if (/click/.test(arguments[0]) && typeof arguments[1] == 'function' && supportTouch) { // 只扩展支持touch的当前元素的click事件
-                var touchStartY, callback = arguments[1];
-                _old$On.apply(this, ['touchstart', function (e) {
-                    touchStartY = e.changedTouches[0].clientY;
-                }]);
-                _old$On.apply(this, ['touchend', function (e) {
-                    if (Math.abs(e.changedTouches[0].clientY - touchStartY) > 10) return;
-
-                    e.preventDefault();
-                    callback.apply(this, [e]);
-                }]);
-            } else {
-                _old$On.apply(this, arguments);
-            }
-            return this;
-        };
-    }
-
-    fastClick();
+    $('body').on('click', '.pop-panel-sub>.pop-panel-titlebar>.pop-panel-sub-back', function () {
+        $(this).parent().parent().removeClass("active");
+    })
 })

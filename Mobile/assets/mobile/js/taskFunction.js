@@ -22,6 +22,7 @@ var taskFunctionBusiness = {
         } else {
             $.ajax({
                 url: url,
+                data: {num:Math.random()},
                 success: function (result) {
                     var result = _this._panelCache[url] = result;
                     if (callback) {
