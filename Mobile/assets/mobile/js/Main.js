@@ -2,28 +2,60 @@
 * 滚动设置
 */
 $(function () {
-    $.fn.SetAutoScroll = function () {
+    $.fn.SetAutoScroll = function (param) {
         var myScroll = new IScroll($(this)[0], {
-            scrollbars: 'custom',
-            //topOffset:$pd[0].offsetHeight,
-            mouseWheel: true,
-            interactiveScrollbars: true,
-            shrinkScrollbars: 'scale',
-            fadeScrollbars: true,
-            //
-            //tap: true,
-            //infinite
-            //click: true,
-            //probe
-            probeType: 1
+            //scrollbars: 'custom',
+            ////topOffset:$pd[0].offsetHeight,
+            //mouseWheel: true,
+            //interactiveScrollbars: true,
+            //shrinkScrollbars: 'scale',
+            //fadeScrollbars: true,
+            ////
+            ////tap: true,
+            ////infinite
+            click: true,
+            ////probe
+            ////probeType: 1,
+            scrollX: param.scrollX || false,
+            scrollY: param.scrollY || true,
+           // preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/, className: /(^|\s)btn(\s|$)/ }
         });
         return myScroll;
     }
 
     $('.autoScroll').each(function () {
-        $(this).SetAutoScroll();
+        var param = {};
+        if ($(this).hasClass("autoHorScroll")) {
+            var width = 0;
+            $(this).find('.scroll').children().each(function () {
+                width += $(this).width();
+            })
+            $(this).find('.scroll').width(width);
+            $(this).find('.scroll').width();
+            param = {
+                scrollX: true,
+                scrollY: false
+            }
+        }
+        $(this).SetAutoScroll(param);
     })
- 
+
+    //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+    //    capture: false,
+    //    passive: false
+    //} : false);
+    //function isPassive() {
+    //    var supportsPassiveOption = false;
+    //    try {
+    //        addEventListener("test", null, Object.defineProperty({}, 'passive', {
+    //            get: function () {
+    //                supportsPassiveOption = true;
+    //            }
+    //        }));
+    //    } catch (e) { }
+    //    return supportsPassiveOption;
+    //}
+
 })
 
 
@@ -40,14 +72,23 @@ $(function () {
         var scrollTop;
         return {
             afterOpen: function () {
-                scrollTop = document.scrollingElement.scrollTop;
+                //alert(document.scrollingElement||document.body.scrollTop);
+                scrollTop = document.scrollingElement || document.body.scrollTop;
                 document.body.classList.add(bodyCls);
                 document.body.style.top = -scrollTop + 'px';
+              
             },
             beforeClose: function () {
+               
                 document.body.classList.remove(bodyCls);
                 // scrollTop lost after set position:fixed, restore it back.
-                document.scrollingElement.scrollTop = scrollTop;
+               
+                if (document.scrollingElement) {
+                    document.scrollingElement.scrollTop = scrollTop;
+                } else {
+                    document.body.scrollTop = scrollTop;
+                }
+               
             }
         };
     })('modal-open');
@@ -155,7 +196,7 @@ $(function () {
             });
         }
 
-       
+        
 
         //确保样式已经应用
         var clientLeft = modal[0].clientLeft;
@@ -173,8 +214,10 @@ $(function () {
         if (typeof cb === 'function') {
             cb.call(this);
         }
+      
         // modal.on("touchmove", function (e) { e.preventDefault(); }, false);
         ModalHelper.afterOpen();
+      
         return modal;
     }
     $.CloseModal = function (modal) {
@@ -359,15 +402,20 @@ $(function () {
 
         var ld = $.Loading();
         var drawHtml = function (html) {
+           
             $model.html(html);
+           
             var width = $model.width();
-            $.OpenModal($model).transitionEnd(function () {
-                $.HideLoading(ld)
-            });
-
+           
             $model.find('.close-panel-btn').on('click', function () {
                 $.CloseModal($model);
             })
+            $.OpenModal($model);
+            
+            $model.transitionEnd(function () {
+                $.HideLoading(ld)
+               
+            });
         }
         //
         if (params.content) {

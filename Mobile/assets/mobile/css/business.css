@@ -1,10 +1,27 @@
 ﻿/*#region 登录*/
+.login-body {
+background:#fff;
+}
+.login-titlebar {
+    background:#fff;
+    border-bottom:1px solid #ccc;
+}
+    .login-titlebar > .title {
+         color:#0F87e6;
+      font-size:.36rem;
+    }
+
+    .login-main-content{
+        background:#fff;
+    }
+
 .logo {
     text-align:center;
     margin-top:1rem;
 }
 .logo>img {
-    width:6rem;
+       width: 6rem;
+    max-width: 90%;
     
 }
 .loginBox {
@@ -13,6 +30,7 @@
 .login-userName,.login-password,.login-submit {
     position:relative;
     margin-top:.5rem;
+    box-shadow:none;
 }
 .login-userName > .userIcon,.login-password>.passwordIcon {
     position: absolute;
@@ -115,26 +133,34 @@
     margin-bottom:1rem;
 }
 .fuctionTitle {
-    border:1px solid #ccc;
-    border-width:1px 0;
-    font-size:.32rem;
-    color:#888;
-    padding:.2rem .2rem;
-    font-weight:400;
+      border: 1px solid #ccc;
+    border-width: 1px 0;
+    font-size: .28rem;
+    color: #666;
+    /* padding: .2rem .2rem; */
+    font-weight: 400;
+    height: .72rem;
+    line-height: .72rem;
+    padding-left: .2rem;
 }
 .functionList.list > .item > .item-icon>img {
-    width:1.2rem;
+    width:.88rem;
+}
+
+.functionList.list > .item > .item-content {
+   height: 1.32rem;
 }
 .functionList.list > .item > .item-content h2 {
-    font-size:.35rem;
-    color:#222;
+    font-size:.32rem;
+    color:#333;
     font-weight:normal;
-    padding:.15rem 0;
+    font-weight: 500;
+    /*padding:.15rem 0;*/
 }
 .functionList.list > .item > .item-content  p {
-    font-size:.25rem;
-    padding:.05rem 0;
-    color:#888;
+       font-size: .24rem;
+    padding: .05rem 0;
+    color: #999;
 }
 
  /*#endregion*/
@@ -156,7 +182,7 @@
         background:#0894ec;
         color:#fff;
         display:inline-block;
-         width:auto;
+       min-width: 1.2rem;
     }
         .task-buttons-tab>.btn.active {
             background:#fff;
@@ -179,13 +205,14 @@
      background:#ddd; 
 }
 .taskItem > .pgdid {
-    font-size:.4rem;
+    font-size:.32rem;
+    color:#333;
     font-weight:400;
 }
 .taskItem > .material {
-    font-size:.3rem;
+    font-size:.28rem;
     font-weight:normal;
-    color:#888;
+     color:#333;
 }
 .taskItem > .plantime {
      font-size:.3rem;

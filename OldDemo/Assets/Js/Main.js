@@ -2,7 +2,7 @@
 * 滚动设置
 */
 $(function () {
-    $.fn.SetAutoScroll = function () {
+    $.fn.SetAutoScroll = function (param) {
         var myScroll = new IScroll($(this)[0], {
             scrollbars: 'custom',
             //topOffset:$pd[0].offsetHeight,
@@ -15,13 +15,22 @@ $(function () {
             //infinite
             //click: true,
             //probe
-            probeType: 1
+            probeType: 1,
+            scrollX: param.scrollX || false,
+            scrollY:param.scrollY||true,
         });
         return myScroll;
     }
 
     $('.autoScroll').each(function () {
-        $(this).SetAutoScroll();
+        var param = {};
+        if ($(this).hasClass("autoHorScroll")) {
+            param = {
+                scrollX: true,
+                scrollY:false
+            }
+        }
+        $(this).SetAutoScroll(param);
     })
  
 })

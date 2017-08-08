@@ -12,6 +12,7 @@
 body.modal-open {
     position: fixed;
     width: 100%;
+        height: 100%;
 }
 
 /*#region 多屏幕适配*/
@@ -85,6 +86,7 @@ hr {
     z-index: 10;
     right: 0;
     left: 0;
+    top:0;
     height: .88rem;
     padding-right: .2rem;
     padding-left: .2rem;
@@ -98,7 +100,7 @@ hr {
 }
 
     .titlebar > .title {
-        font-size:.4rem;
+        font-size:.36rem;
         font-weight: bold;
         display: block;
         text-align: center;
@@ -118,10 +120,11 @@ hr {
         z-index: 1001;
         position: absolute;
         color: #007aff;
+        
     }
     
     .titlebar > .pull-left {
-       
+      
        
        
     }
@@ -408,12 +411,16 @@ hr {
       position: relative;
 }
     .searchBox > .filter {
-        flex:none;
-        padding:.1rem .2rem;
-        border:none;
-        font-size:.3rem;
-            line-height: .5rem;
-        }
+        flex: none;
+        padding: .1rem .2rem;
+        border: none;
+        font-size: .28rem;
+        line-height: .4rem;
+        margin-left: .1rem;
+        color:#333;
+        height:.54rem;
+        
+    }
         .searchBox > .filter > .iconfont {
                font-size: .35rem;
         }
@@ -422,17 +429,19 @@ hr {
         flex: 1;
         border: none;
         background: #f0eff5;
-        margin: 0 .2rem;
+        /*margin: 0 .2rem;*/
         padding: 0 .1rem 0 .6rem;
-        height:.7rem;
+        height:.56rem;
         border-radius:.1rem;
     }
-        .searchBox > input[type=search]+ i.iconfont{
-             position:absolute;
-             top:50%;
-             margin-top:-.24rem;
-             margin-left:.3rem;
-             font-size:.36rem;
+        .searchBox > input[type=search] + i.iconfont {
+            position: absolute;
+            top: 50%;
+            margin-top: -.17rem;
+            margin-left: .16rem;
+            font-size: .3rem;
+            width: .32rem;
+            height: .32rem;
         }
   
 /*#endregion*/
@@ -563,8 +572,8 @@ hr {
         text-align: center;
         align-items: center;
         position:relative;
-        min-width:20%;
-        
+        min-width:1.5rem;
+        float:left;
     }
     .hor-line .line-block .icon {
         display: inline-block;
@@ -1014,6 +1023,7 @@ hr {
      .pop-panel-titlebar {
         position:relative;
         border-bottom:1px solid #ccc;
+        height:.8rem;
     }
     .pop-panel-titlebar>.pop-panel-titlebar-title {
         display:block;
@@ -1021,25 +1031,35 @@ hr {
         padding:.2rem 0;
         margin:0 .8rem;
         font-size:.4rem;
+        line-height:.4rem;
         position:relative;
+     
     }
     .pop-panel-content {
         padding:0;
       
     }
-     .pop-panel-titlebar > .pull-right {
-        position: absolute;
-        right: .1rem;
-        top: 50%;
-        margin-top: -12px;
-        color: rgba(17, 17, 17, 0.41);
-    }
+.pop-panel-titlebar + .pop-panel-content {
+    position:absolute;
+    top:.8rem;
+}
+.pop-panel-titlebar > .pull-right {
+    position: absolute;
+    right: .1rem;
+    top: 50%;
+    margin-top: -12px;
+    color: rgba(17, 17, 17, 0.41);
+    padding-left: .5rem;
+    width: initial;
+        z-index: 1;
+}
     .pop-panel-titlebar > .pull-left {
         position: absolute;
         left: .1rem;
         top: 50%;
         margin-top: -12px;
         color: rgba(17, 17, 17, 0.41);
+        padding-right:1rem;
     }
  
   
@@ -1154,6 +1174,9 @@ hr {
     .lookup > .lookup-title {
         font-size:.32rem;
         color:#333333;
+        flex:0;
+        width:1.3rem;
+        min-width:1.3rem;
     }
     .lookup > .lookup-selected {
         font-size: .32rem;
@@ -1210,7 +1233,7 @@ input[type=checkbox] + .checkbox {
      input[type=checkbox]:checked + .checkbox:after {
         content: "\e662";
         font-family: iconfont;
-        font-size: .3rem;
+        font-size: .26rem;
         color: white;
         font-weight: bolder;
         display: block;
@@ -1219,7 +1242,7 @@ input[type=checkbox] + .checkbox {
   border-radius:50%;*/
         width: .36rem;
         height: .36rem;
-        line-height:.38rem;
+        line-height:.4rem;
         text-align: center;
         /*left: -3px;
         top: -3px;*/
@@ -1302,5 +1325,86 @@ input[type=checkbox] + .checkbox {
     }
     .row-list-select.list-view .list-view-item-content > .checkbox,.row-list-select.list-view .list-view-item-content > .radio {
         flex:0;
+        margin-right:.24rem;
     }
+
+
+.row-list-select input[type=checkbox] + .checkbox:before {
+    border-radius: 50%;
+}
+ 
+ 
+/*#endregion*/
+
+/*#region scroll 滚动*/
+
+/*自动设置滚动区*/
+.autoScroll, .nativeAutoScroll {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #f1efef;
+    overflow: hidden;
+}
+/*.main-content.autoScroll {
+      position: absolute ;
+}*/
+    .autoScroll .scroll, .nativeAutoScroll .scroll {
+        min-height: 101%;
+    }
+.autoHorScroll {
+    bottom:auto;
+    position: relative;
+}
+.autoHorScroll .scroll {
+    min-height:inherit;
+    min-width:101%;
+     overflow: hidden;
+}
+
+.nativeAutoScroll {
+    
+    overflow-y: scroll;
+}
+
+/*#endregion*/
+
+
+/*#region user-list-view 用户列表*/
+.user-list-view >.list-view-item> .list-view-item-content {
+    height:1.12rem; 
+    padding:.22rem .3rem;
+}
+.user-list-view >.list-view-item:after {
+   
+     
+    transform: scaleY(.5) translateX(.88rem);
+}
+.user-list-view .list-view-item-content .userAvatar {
+   height: .68rem;
+    width: .68rem;
+    flex: none;
+    margin-right: .2rem;
+    background: #0f87e6;
+    border-radius: 50%;
+    align-items: center;
+    line-height: .68rem;
+    font-size: .24rem;
+    text-align: center;
+    color: #fff;
+}
+.user-list-view .list-view-item-content .userName {
+        height: .68rem;
+   line-height: .68rem;
+}
+
+.user-list-view .list-view-item-content .userAvatar ~ .checkbox ,.user-list-view .list-view-item-content .userAvatar ~ .radio{
+    top: 50%;
+    margin-top: -.18rem;
+}
+
+
 /*#endregion*/

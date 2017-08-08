@@ -1698,8 +1698,9 @@ IScroll.prototype = {
 			case 'keydown':
 				this._key(e);
 				break;
-			case 'click':
-				if ( this.enabled && !e._constructed ) {
+		    case 'click':
+                //yuand 解决滚动不能点击form的bug
+				if ( this.enabled && !e._constructed  && !utils.preventDefaultException(e.target,this.options.preventDefaultException)) {
 					e.preventDefault();
 					e.stopPropagation();
 				}

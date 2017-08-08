@@ -11,7 +11,8 @@
     <link href="assets/mobile/css/business.css" rel="stylesheet" />
      
     <script src="assets/mobile/js/zepto.min.js"></script>
-    <script src="assets/mobile/js/plugins/IScroll/iscroll-probe.js"></script>
+    <!--<script src="assets/mobile/js/plugins/IScroll/iscroll-probe.js"></script>-->
+    <script src="assets/mobile/js/plugins/IScroll/iscroll.js"></script>
     <script src="assets/mobile/js/Main.js"></script>
 </head>
 
@@ -22,240 +23,248 @@
         </h2>
     </header>
 
-    <section class="main-content">
+    <section class="main-content autoScroll">
+        <div class="scroll">
+            <div class="autoHorScroll autoScroll">
+                <div class="relationProc hor-line  scroll">
 
-        <div class="relationProc hor-line">
-            <div class="line-block">
-                <div class="icon">
-                    10
-                </div>
-                
-                <div class="text">
-                    分派
+                    <div class="line-block">
+                        <div class="icon">
+                            10
+                        </div>
+
+                        <div class="text">
+                            分派
+                        </div>
+                    </div>
+                    <div class="line-block">
+                        <div class="icon">
+                            20
+                        </div>
+
+                        <div class="text">
+                            分派
+                        </div>
+                    </div>
+                    <div class="line-block">
+                        <div class="icon">
+                            30
+                        </div>
+
+                        <div class="text">
+                            分派
+                        </div>
+                    </div>
+                    <div class="line-block active">
+                        <div class="icon">
+                            40
+                        </div>
+
+                        <div class="text">
+                            分派
+                        </div>
+                    </div>
+                    <div class="line-block">
+                        <div class="icon">
+                            50
+                        </div>
+
+                        <div class="text">
+                            分派
+                        </div>
+                    </div>
+                    <div class="line-block">
+                        <div class="icon">
+                            60
+                        </div>
+
+                        <div class="text">
+                            分派
+                        </div>
+                    </div>
+                    <div class="line-block">
+                        <div class="icon">
+                            70
+                        </div>
+
+                        <div class="text">
+                            分派
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
-            <div class="line-block">
-                <div class="icon">
-                    20
+            <hr />
+         
+            <div class="collapse-panel">
+                <div class="title">
+                    <span>详细信息</span>
                 </div>
-
-                <div class="text">
-                    分派
+                <div class="content">
+                    <div class="task-detail-info">
+                        <div class="item">
+                            <span class="title">物料代号:</span>
+                            <span class="text">R2016-03-LS-0017</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">物料名称:</span>
+                            <span class="text">情话也气液分离器</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">项目编号:</span>
+                            <span class="text"></span>
+                        </div>
+                        <div class="item">
+                            <span class="title">产品编号:</span>
+                            <span class="text">1123123123123123</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">工作中心:</span>
+                            <span class="text">卷焊工段</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">所属班组:</span>
+                            <span class="text">卷焊班</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">计划数量:</span>
+                            <span class="text">111</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">物料状态:</span>
+                            <span class="text">初始</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">计划时间:</span>
+                            <span class="text">1992-01-12 10:22 ~ 2017-01-12 12:22</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">指定设备:</span>
+                            <span class="text">一个设备</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">确认人员:</span>
+                            <span class="text">张三、李四、王五、找刘、很多人</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">确认时间:</span>
+                            <span class="text">1992-01-24 12:36</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">完成数量:</span>
+                            <span class="text">1</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">合格数量:</span>
+                            <span class="text">1</span>
+                        </div>
+                        <div class="item">
+                            <span class="title">报废数量:</span>
+                            <span class="text">1</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="line-block">
-                <div class="icon">
-                    30
+            <wl></wl>
+            <div class="collapse-panel">
+                <div class="title">
+                    <span>工序流转</span>
                 </div>
+                <div class="content">
+                    <div id="vertical-timeline" class="timeline descending task-vertical-timeline">
+                        <div class="vertical-timeline-block">
+                            <div class="vertical-timeline-icon">
+                                <span class="">派</span>
+                            </div>
 
-                <div class="text">
-                    分派
-                </div>
-            </div>
-            <div class="line-block active">
-                <div class="icon">
-                    40
-                </div>
+                            <div class="vertical-timeline-content">
+                                <h3 class="content-header">分派</h3>
+                                <p class="content-text">
+                                    系统管理员分派给XXXX
+                                </p>
+                                <div class="vertical-date content-footer">
+                                    <small>发起时间</small>
+                                    <small>2016-11-29 10:30</small>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="text">
-                    分派
-                </div>
-            </div>
-            <div class="line-block">
-                <div class="icon">
-                   50
-                </div>
+                        <div class="vertical-timeline-block">
+                            <div class="vertical-timeline-icon">
+                                <span class="">派</span>
+                            </div>
 
-                <div class="text">
-                    分派
-                </div>
-            </div>
-            <div class="line-block">
-                <div class="icon">
-                    60
-                </div>
+                            <div class="vertical-timeline-content">
+                                <h3 class="content-header">分派</h3>
+                                <p class="content-text">
+                                    系统管理员分派给XXXX
+                                </p>
+                                <div class="vertical-date content-footer">
+                                    <small>发起时间</small>
+                                    <small>2016-11-29 10:30</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vertical-timeline-block">
+                            <div class="vertical-timeline-icon">
+                                <span class="">派</span>
+                            </div>
 
-                <div class="text">
-                    分派
-                </div>
-            </div>
-            <div class="line-block">
-                <div class="icon">
-                    70
-                </div>
+                            <div class="vertical-timeline-content">
+                                <h3 class="content-header">分派</h3>
+                                <p class="content-text">
+                                    系统管理员分派给XXXX
+                                </p>
+                                <div class="vertical-date content-footer">
+                                    <small>发起时间</small>
+                                    <small>2016-11-29 10:30</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vertical-timeline-block">
+                            <div class="vertical-timeline-icon">
+                                <span class="">派</span>
+                            </div>
 
-                <div class="text">
-                    分派
+                            <div class="vertical-timeline-content">
+                                <h3 class="content-header">分派</h3>
+                                <p class="content-text">
+                                    系统管理员分派给XXXX
+                                </p>
+                                <div class="vertical-date content-footer">
+                                    <small>发起时间</small>
+                                    <small>2016-11-29 10:30</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vertical-timeline-block">
+                            <div class="vertical-timeline-icon">
+                                <span class="">派</span>
+                            </div>
+
+                            <div class="vertical-timeline-content">
+                                <h3 class="content-header">分派</h3>
+                                <p class="content-text">
+                                    系统管理员分派给XXXX
+                                </p>
+                                <div class="vertical-date content-footer">
+                                    <small>发起时间</small>
+                                    <small>2016-11-29 10:30</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <hr />
-        <div class="collapse-panel">
-            <div class="title">
-                <span>详细信息</span>
-            </div>
-            <div class="content">
-                <div class="task-detail-info">
-                    <div class="item">
-                        <span class="title">物料代号:</span>
-                        <span class="text">R2016-03-LS-0017</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">物料名称:</span>
-                        <span class="text">情话也气液分离器</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">项目编号:</span>
-                        <span class="text"></span>
-                    </div>
-                    <div class="item">
-                        <span class="title">产品编号:</span>
-                        <span class="text">1123123123123123</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">工作中心:</span>
-                        <span class="text">卷焊工段</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">所属班组:</span>
-                        <span class="text">卷焊班</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">计划数量:</span>
-                        <span class="text">111</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">物料状态:</span>
-                        <span class="text">初始</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">计划时间:</span>
-                        <span class="text">1992-01-12 10:22 ~ 2017-01-12 12:22</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">指定设备:</span>
-                        <span class="text">一个设备</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">确认人员:</span>
-                        <span class="text">张三、李四、王五、找刘、很多人</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">确认时间:</span>
-                        <span class="text">1992-01-24 12:36</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">完成数量:</span>
-                        <span class="text">1</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">合格数量:</span>
-                        <span class="text">1</span>
-                    </div>
-                    <div class="item">
-                        <span class="title">报废数量:</span>
-                        <span class="text">1</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <wl></wl>
-        <div class="collapse-panel">
-            <div class="title">
-                <span>工序流转</span>
-            </div>
-            <div class="content">
-                <div id="vertical-timeline" class="timeline descending task-vertical-timeline">
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon">
-                            <span class="">派</span>
-                        </div>
-
-                        <div class="vertical-timeline-content">
-                            <h3 class="content-header">分派</h3>
-                            <p class="content-text">
-                                系统管理员分派给XXXX
-                            </p>
-                            <div class="vertical-date content-footer">
-                                <small>发起时间</small>
-                                <small>2016-11-29 10:30</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon">
-                            <span class="">派</span>
-                        </div>
-
-                        <div class="vertical-timeline-content">
-                            <h3 class="content-header">分派</h3>
-                            <p class="content-text">
-                                系统管理员分派给XXXX
-                            </p>
-                            <div class="vertical-date content-footer">
-                                <small>发起时间</small>
-                                <small>2016-11-29 10:30</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon">
-                            <span class="">派</span>
-                        </div>
-
-                        <div class="vertical-timeline-content">
-                            <h3 class="content-header">分派</h3>
-                            <p class="content-text">
-                                系统管理员分派给XXXX
-                            </p>
-                            <div class="vertical-date content-footer">
-                                <small>发起时间</small>
-                                <small>2016-11-29 10:30</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon">
-                            <span class="">派</span>
-                        </div>
-
-                        <div class="vertical-timeline-content">
-                            <h3 class="content-header">分派</h3>
-                            <p class="content-text">
-                                系统管理员分派给XXXX
-                            </p>
-                            <div class="vertical-date content-footer">
-                                <small>发起时间</small>
-                                <small>2016-11-29 10:30</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon">
-                            <span class="">派</span>
-                        </div>
-
-                        <div class="vertical-timeline-content">
-                            <h3 class="content-header">分派</h3>
-                            <p class="content-text">
-                                系统管理员分派给XXXX
-                            </p>
-                            <div class="vertical-date content-footer">
-                                <small>发起时间</small>
-                                <small>2016-11-29 10:30</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </section>
    
     
     <footer id="taskListButtons" class="bottomButtons active">
-        <a class="btn btn-block  btn-warning" onclick='$.Alert("123", "123123")'>任务确认</a>
-        <a id="btn-taskAlarm"  class="btn btn-block  btn-warning">任务报警</a>
+        <a id="btn-task-taskConfirm" class="btn btn-block  btn-warning" >任务确认</a>
+        <a id="btn-task-taskAlarm" class="btn btn-block  btn-warning">任务报警</a>
         <div class="btn btn-block  btn-warning">
             其它
         </div>
@@ -275,8 +284,7 @@
 
 <script src="assets/mobile/js/taskFunction.js"></script>
 <script>
-    $('#btn-taskAlarm').click(function () {
-
+    $('#btn-task-taskConfirm').click(function () {
         taskFunctionBusiness.OpenPanel('taskConfirm.html');
     })
     

@@ -1,7 +1,7 @@
-﻿<div class="pop-panel" style="">
+﻿<div id="dp-taskConfirm" class="pop-panel" style="">
     <header class="pop-panel-titlebar">
         <span class="pop-panel-titlebar-title"> 任务确认</span>
-        <i class="close-panel-btn  pull-right iconfont  icon-chuyidong "></i>
+        <a class="close-panel-btn  pull-right iconfont  icon-chuyidong " href="javascript:void(0)"  > </a>
     </header>
    
     <section class="pop-pane-content">
@@ -10,16 +10,16 @@
         </div>
         <ul class="list-view">
             <li class="list-view-item">
-                <div class="list-view-item-content  navigate-right lookup" for="#taskConfirm-chooseExecutors">
-                    <span class="lookup-title">执行人</span>
+                <div class="list-view-item-content  navigate-right lookup" for="#taskConfirm-chooseWorkCenters">
+                    <span class="lookup-title">工作中心</span>
                     <div class="lookup-selected">
                         张三、张三、张三、张三、张三、张三、张三
                     </div>
                 </div>
             </li>
             <li class="list-view-item">
-                <div class="list-view-item-content  navigate-right lookup" for="#taskConfirm-chooseExecutors">
-                    <span class="lookup-title">执行人</span>
+                <div class="list-view-item-content  navigate-right lookup" for="#taskConfirm-chooseEquips">
+                    <span class="lookup-title">设备</span>
                     <div class="lookup-selected">
                         张三、张三、张三、张三、张三、张三、张三
                     </div>
@@ -38,130 +38,471 @@
        
     </section>
     <footer class="bottomButtons">
-        <a id="btn-taskAlarm" class="btn btn-block  btn-warning">任务确认</a>
+        <a id="btn-taskConfirm" class="btn btn-block  btn-warning">任务确认</a>
     </footer>
   
     
-    <div id="taskConfirm-chooseExecutors" class="pop-panel-sub">
+    <div id="taskConfirm-chooseWorkCenters" class="pop-panel-sub">
         <header class="pop-panel-titlebar">
-            <i class="pull-left iconfont icon-arrow-left pop-panel-sub-back"></i>
-            <span class="pop-panel-titlebar-title"> 选择执行人</span>
+            <span class="pop-panel-titlebar-title"> 选择工作中心</span>
+            <a class="pull-left iconfont icon-arrow-left pop-panel-sub-back"  href="javascript::void(0)"></a>
         </header>
-        <section class="pop-pane-content">
-          
-            <ul class="list-view row-list-select">
-                
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
+        <section class="pop-panel-content  autoScroll">
+            <div class="scroll">
+                <ul class="list-view row-list-select">
 
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>工作中心1</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>工作中心2</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
 
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
 
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
 
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-                <li class="list-view-item">
-                    <label class="list-view-item-content ">
-                        <span>原因</span>
-                        <input type="radio" name="equip" />
-                        <span class="radio"></span>
-                    </label>
-                </li>
-            </ul>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
         </section>
        
+    </div>
+    <div id="taskConfirm-chooseEquips" class="pop-panel-sub">
+        <header class="pop-panel-titlebar">
+            <span class="pop-panel-titlebar-title"> 选择设备</span>
+            <a class="pull-left iconfont icon-arrow-left pop-panel-sub-back" href="javascript::void(0)"></a>
+        </header>
+        <section class="pop-panel-content  autoScroll">
+            <div class="scroll">
+                <ul class="list-view row-list-select">
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>设备1</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>设备2</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+    </div>
+    
+    <div id="taskConfirm-chooseExecutors" class="pop-panel-sub">
+        <header class="pop-panel-titlebar">
+            <span class="pop-panel-titlebar-title"> 选择执行人</span>
+            <a class="pull-left iconfont icon-arrow-left pop-panel-sub-back" href="javascript::void(0)"></a>
+        </header>
+        <section class="pop-panel-content  autoScroll">
+            <div class="scroll">
+                <ul class="list-view row-list-select">
+                    <li class="list-view-item collapse">
+                        <a>程序员</a>
+                        <div class="list-view-item-content">
+                            <ul class="list-view user-list-view">
+                                <li class="list-view-item">
+                                    <label class="list-view-item-content">
+                                        <span class="userAvatar">
+                                            张三
+                                        </span>
+                                        <span class="userName">张三 （高级技工，程序员）</span>
+                                        <input type="checkbox" />
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </li>
+                                <li class="list-view-item">
+                                    <label class="list-view-item-content">
+                                        <span class="userAvatar">
+                                            张三
+                                        </span>
+                                        <span class="userName">张三 （高级技工，程序员）</span>
+                                        <input type="checkbox" />
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </li>
+                                <li class="list-view-item">
+                                    <label class="list-view-item-content">
+                                        <span class="userAvatar">
+                                            张三
+                                        </span>
+                                        <span class="userName">张三 （高级技工，程序员）</span>
+                                        <input type="checkbox" />
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </li>
+                                <li class="list-view-item">
+                                    <label class="list-view-item-content">
+                                        <span class="userAvatar">
+                                            张三
+                                        </span>
+                                        <span class="userName">张三 （高级技工，程序员）</span>
+                                        <input type="checkbox" />
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </li>
+                    <li class="list-view-item collapse">
+                        <a>高级技工</a>
+                        <div class="list-view-item-content">
+                            <ul class="list-view user-list-view">
+                                <li class="list-view-item">
+                                    <label class="list-view-item-content">
+                                        <span class="userAvatar">
+                                            张三
+                                        </span>
+                                        <span class="userName">张三 （高级技工，程序员）</span>
+                                        <input type="checkbox" />
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </li>
+                                <li class="list-view-item">
+                                    <label class="list-view-item-content">
+                                        <span class="userAvatar">
+                                            张三
+                                        </span>
+                                        <span class="userName">张三 （高级技工，程序员）</span>
+                                        <input type="checkbox" />
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </li>
+                                <li class="list-view-item">
+                                    <label class="list-view-item-content">
+                                        <span class="userAvatar">
+                                            张三
+                                        </span>
+                                        <span class="userName">张三 （高级技工，程序员）</span>
+                                        <input type="checkbox" />
+                                        <span class="checkbox"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                </ul> 
+                <!--<ul class="list-view row-list-select">
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                </ul>-->
+            </div>
+
+        </section>
+
     </div>
 </div>
 
 
 <script>
+    console.log(1);
     $('.lookup').click(function () {
         $($(this).attr('for')).addClass("active")
+    })
+    $('#dp-taskConfirm .autoScroll').each(function(){
+        $(this).SetAutoScroll({})
+    });
+
+    //$('#dp-taskConfirm').find('.close-panel-btn').off('click').on('click', function () {
+    //    alert(1);
+    //});
+
+    $('#btn-taskConfirm').click(function () {
+        try {
+            $(this).parents('.pop-panel').find('.close-panel-btn').click();
+        } catch (e) {
+            alert(e);
+        }
+        
     })
 </script>
