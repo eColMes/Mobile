@@ -2,10 +2,12 @@
 * z-index 层级说明
     页面元素 0
     页面标题 底部按钮  10
-    pop弹出页面   20
-    pop 底部按钮  25
-    pop-sub 二级弹出 30
+    layout遮罩层  20
+    pop弹出页面   30
+    pop 底部按钮  35
+    pop-sub 二级弹出 40
     loading 100
+    
     
 *   
 */
@@ -106,7 +108,7 @@ hr {
         text-align: center;
         white-space: nowrap;
         color: #fff;
-        z-index: 1000;
+        z-index: 11;
         top: 0;
     }
     .titlebar > .pull-left, .titlebar > .pull-right {
@@ -117,7 +119,7 @@ hr {
         top: 0;
         padding: 0;
         border: 0;
-        z-index: 1001;
+        z-index: 12;
         position: absolute;
         color: #007aff;
         
@@ -370,7 +372,7 @@ hr {
 .buttons-tab .btn.active {
     background-color: #0894ec;
     color: white;
-    z-index: 90;
+    z-index: 10;
 }
 .buttons-tab .btn {
     border-radius: 0 0 0 0;
@@ -436,16 +438,21 @@ hr {
         height:.56rem;
         border-radius:.1rem;
     }
+      
         .searchBox > input[type=search] + i.iconfont {
             position: absolute;
             top: 50%;
-            margin-top: -.17rem;
-            margin-left: .16rem;
+            left:0;
+            margin-top: -.2rem;
+            margin-left: .36rem;
             font-size: .3rem;
             width: .32rem;
             height: .32rem;
+            z-index:1;
         }
-  
+searchBox > input[type=search]:focus {
+      border-radius:.1rem;
+}
 /*#endregion*/
 
 /*#region 折叠面板*/
@@ -663,8 +670,13 @@ hr {
     /*top: 200px;*/
     border-radius:.1rem;
     
-    bottom:-200%;
-    transition:top .3s,bottom .3s;
+    bottom:-10rem;
+    transition:top .3s,bottom .3s,opacity 1s;
+
+    right: .4rem;
+    bottom:1.2rem;
+    opacity:0;
+    display:none;
 }
 .menu>.btn{
     padding:.2rem;
@@ -704,8 +716,9 @@ hr {
     .menu.bottom-top {
         
     }
-    .menu.active {
-         bottom:1.2rem;
+    .btn-menu.active+.menu {
+         display:block;
+         opacity:1;
     }
 /*#endregion*/
 
@@ -715,7 +728,7 @@ hr {
 .modal {
   width: 5.4rem;
   position: fixed;
-  z-index: 11000;
+  z-index: 30;
   left: 50%;
   margin-left: -2.7rem;
   margin-top: 0;
@@ -762,7 +775,7 @@ hr {
   width: 100%;
   background-color: #b5b5b5;
   display: block;
-  z-index: 15;
+  z-index: 35;
   -webkit-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
 }
@@ -821,7 +834,7 @@ hr {
   height: 100%;
   background-color: #b5b5b5;
   display: block;
-  z-index: 15;
+  z-index: 35;
   -webkit-transform-origin: 100% 50%;
           transform-origin: 100% 50%;
   -webkit-transform: scaleY(0.5);
@@ -842,7 +855,7 @@ hr {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 10600;
+    z-index: 20;
     visibility: hidden;
     opacity: 0;
     -webkit-transition-duration: 400ms;
@@ -871,14 +884,17 @@ hr {
     background-color: black;
     opacity: 0.2;
     background:rgba(0,0,0,.2);
-    z-index: 10600
+    z-index: 100
 }
 .modal-preloader {
-    position: absolute;
-    left: 50%;
-    margin-left: -20px;
-    top: 40%;
-      z-index:10700
+    position: absolute; 
+    z-index: 100;
+    width: 100%;
+    height: 100%; 
+    left: 0;
+    top: 0;
+    padding-top: 40%;
+    text-align: center;
 }
  /*loading*/
 .loading {
@@ -914,7 +930,7 @@ hr {
     padding:10px 25px;
     text-align:center;
     position:fixed;
-    z-index:10690;
+    z-index:90;
     left: 50%;
     -webkit-transform: translate(-50%,0);
      transform: translate(-50%,0); 
@@ -1002,11 +1018,11 @@ hr {
     margin:0;
     min-height:4rem;
     height: 100%;
-    z-index:20;
+    z-index:30;
 }
   /* pop-panel-sub 面板嵌套*/
 .pop-panel-sub {
-    z-index: 30;
+    z-index: 40;
     position: absolute;
     top: 0;
     left: 0;

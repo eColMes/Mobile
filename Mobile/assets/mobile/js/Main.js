@@ -363,6 +363,7 @@ $(function () {
         }
         //$('.modal-preloader-overlay').show();
         $._addModalToModalContainer($load);
+        $load.width();
         return $load;
         //return $load.appendTo($(defaults.modalContainer));
         //$(defaults.modalContainer).append('<div class="preloader-indicator-overlay"></div><div class="modal-preloader"><span class="loading"></span><span class="loadingText"></span></div>');

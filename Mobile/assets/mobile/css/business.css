@@ -87,7 +87,7 @@ background:#fff;
 .slide {
     width: 100%;
     -webkit-box-flex: 1;
-    height: 150px;
+    height: 3.5rem;
 }
 /*bannel 位置指示标*/
 .banner .iScrollLoneScrollbar {
@@ -203,9 +203,9 @@ background:#fff;
 }
 
 .taskList-autoScroll {
-    position:relative;
-    height:100%;
-    border-bottom: .96rem solid transparent;
+    position:absolute;
+    top:.96rem;
+    bottom:0;
 
        
 }
@@ -318,10 +318,74 @@ background:#fff;
 
 }
     .div-alarmSelfReason > textarea {
-        width:100%;
-        height:1.2rem;
-        resize:none;
-        border:1px solid #ccc
+        width: 100%;
+        height: 1.4rem;
+        resize: none;
+        border: 1px solid #ccc;
+        PADDING: .1rem .2rem;
     }
 
+/*#endregion*/
+
+/*#region 任务汇报*/
+.reportDetail {
+     padding:0 .3rem;
+}
+.reportDetail-title {
+    font-size: .32rem;
+    color: #333;
+    font-weight: normal;
+   
+    margin-bottom:.24rem;
+}
+.reportDetail-item {
+    display:-webkit-flex;
+    display:flex; 
+    align-items:center;
+    margin-bottom:.32rem;
+}
+    .reportDetail-item > .reportDetail-item-text {
+        flex:none;
+      
+        text-align:right;
+        width:1.4rem;
+      
+    }
+     .reportDetail-item > .reportDetail-item-ipt {
+        flex:1;
+        width:100%;
+        height:.68rem;
+        margin-left:.4rem;
+        border:1px solid #E5E5E5 ;
+        /*margin:0 .24rem 0 .4rem;*/
+    }
+    .reportDetail-item > .reportDetail-item-alarm {
+        flex: 1;
+        width: 100%;
+        height: .68rem;
+        padding: 0;
+        margin: 0;
+        margin-left: .24rem;
+        text-align: center;
+        line-height: .68rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border:1px solid #0F87E6;
+        color:#0F87E6;
+        font-size:.24rem;
+    }
+  
+        .reportDetail-item > .reportDetail-item-alarm:active,.reportDetail-item > .reportDetail-item-alarm.active {
+           background-color:#0c75c9;
+           border-color:#0c75c9;
+           color:#fff;
+          
+        }
+            .reportDetail-item > .reportDetail-item-alarm:active::-webkit-input-placeholder {
+                color:#fff;
+            }
+        .reportDetail-item > .reportDetail-item-alarm.active {
+            background-color:#0F87E6;
+            color:#fff;
+        }
 /*#endregion*/

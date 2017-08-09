@@ -1,85 +1,93 @@
-﻿<div id="dp-taskAlarm" class="pop-panel" style="">
+﻿<div id="dp-taskReport" class="pop-panel" style="">
     <header class="pop-panel-titlebar">
-        <span class="pop-panel-titlebar-title"> 任务报警</span>
-        <a class="close-panel-btn  pull-right iconfont  icon-chuyidong " href="javascript:"  > </a>
+        <span class="pop-panel-titlebar-title"> 任务汇报</span>
+        <a class="close-panel-btn  pull-right iconfont  icon-chuyidong " href="javascript:"> </a>
     </header>
-   
-    <section class="pop-pane-content">
-         
+
+    <section class="pop-pane-content"> 
         <ul class="list-view">
             <li class="list-view-item">
-                <div class="list-view-item-content  navigate-right lookup" for="#taskAlarm-chooseReasonType">
-                    <span class="lookup-title">报警分类</span>
-                    <div class="lookup-selected">
-                      
-                    </div>
-                </div>
-            </li>
-            <li class="list-view-item">
-                <div class="list-view-item-content  navigate-right lookup" for="#taskAlarm-chooseReason">
-                    <span class="lookup-title">报警原因</span>
+                <div class="list-view-item-content  navigate-right lookup" for="#taskReport-chooseExecutors">
+                    <span class="lookup-title">执行人</span>
                     <div class="lookup-selected">
                        
                     </div>
                 </div>
             </li> 
-           
         </ul>
-        <div class="div-alarmSelfReason" style="padding:.2rem">
-            <textarea style="" placeholder="输入自定义报警原因"></textarea>
+        <div class="reportDetail">
+            <h2 class="reportDetail-title">请填写</h2>
+            <ul class="reportDetail-list">
+                <li class="reportDetail-item">
+                    <span class="reportDetail-item-text">合格.一个合格 </span>
+                    <input class="reportDetail-item-ipt" type="number"/>
+                 
+                </li>
+                <li class="reportDetail-item">
+                    <span class="reportDetail-item-text">报废 </span>
+                    <input class="reportDetail-item-ipt" />
+                    <div class="reportDetail-item-alarm btn"   >请选择报警原因</div>
+                </li>
+                <li class="reportDetail-item">
+                    <span class="reportDetail-item-text">让步 </span>
+                    <input class="reportDetail-item-ipt" />
+                    <div class="reportDetail-item-alarm btn active"  >加工不合格</div>
+                </li>
+            </ul>
         </div>
-       
+
     </section>
     <footer class="bottomButtons">
-        <a id="btn-taskAlarm" class="btn btn-block  btn-warning">任务报警</a>
+        <a id="btn-taskReport" href="javascript:" class="btn btn-block  btn-warning">任务汇报</a>
     </footer>
-  
-    
-    <div id="taskAlarm-chooseReasonType" class="pop-panel-sub">
+
+
+    <div id="taskReport-chooseExecutors" class="pop-panel-sub">
         <header class="pop-panel-titlebar">
-            <span class="pop-panel-titlebar-title"> 选择报警类型</span>
+            <span class="pop-panel-titlebar-title"> 选择执行人</span>
             <a class="pull-left iconfont icon-arrow-left pop-panel-sub-back" href="javascript:"></a>
         </header>
         <section class="pop-panel-content  autoScroll">
             <div class="scroll">
-                <ul class="list-view row-list-select">
-
+                <ul class="list-view user-list-view  row-list-select">
                     <li class="list-view-item">
-                        <label class="list-view-item-content ">
-                            <span>工艺报警</span>
-                            <input type="radio" name="equip" />
-                            <span class="radio"></span>
+                        <label class="list-view-item-content">
+                            <span class="userAvatar">
+                                张三
+                            </span>
+                            <span class="userName">张三 （高级技工，程序员）</span>
+                            <input type="checkbox" />
+                            <span class="checkbox"></span>
                         </label>
                     </li>
                     <li class="list-view-item">
-                        <label class="list-view-item-content ">
-                            <span>设备报警</span>
-                            <input type="radio" name="equip" />
-                            <span class="radio"></span>
-                        </label>
-                    </li>
-
-                    <li class="list-view-item">
-                        <label class="list-view-item-content ">
-                            <span>缺料报警</span>
-                            <input type="radio" name="equip" />
-                            <span class="radio"></span>
+                        <label class="list-view-item-content">
+                            <span class="userAvatar">
+                                张三
+                            </span>
+                            <span class="userName">张三 （高级技工，程序员）</span>
+                            <input type="checkbox" />
+                            <span class="checkbox"></span>
                         </label>
                     </li>
                     <li class="list-view-item">
-                        <label class="list-view-item-content ">
-                            <span>其他报警</span>
-                            <input type="radio" name="equip" />
-                            <span class="radio"></span>
+                        <label class="list-view-item-content">
+                            <span class="userAvatar">
+                                张三
+                            </span>
+                            <span class="userName">张三 （高级技工，程序员）</span>
+                            <input type="checkbox" />
+                            <span class="checkbox"></span>
                         </label>
-                    </li> 
+                    </li>
                 </ul>
             </div>
 
         </section>
 
     </div>
-    <div id="taskAlarm-chooseReason" class="pop-panel-sub">
+ 
+    <div id="taskReport-chooseAlarmReason" class="pop-panel-sub">
         <header class="pop-panel-titlebar">
             <span class="pop-panel-titlebar-title"> 选择报警原因</span>
             <a class="pull-left iconfont icon-arrow-left pop-panel-sub-back" href="javascript:"></a>
@@ -87,16 +95,17 @@
         <section class="pop-panel-content  autoScroll">
             <div class="scroll">
                 <ul class="list-view row-list-select">
+
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>设备坏了</span>
+                            <span>设备1</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
                     </li>
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>机器坏了</span>
+                            <span>设备2</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
@@ -104,29 +113,14 @@
 
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>停电了</span>
+                            <span>原因</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
                     </li>
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>跳闸了</span>
-                            <input type="radio" name="equip" />
-                            <span class="radio"></span>
-                        </label>
-                    </li>
-
-                    <li class="list-view-item">
-                        <label class="list-view-item-content ">
-                            <span>打雷了</span>
-                            <input type="radio" name="equip" />
-                            <span class="radio"></span>
-                        </label>
-                    </li>
-                    <li class="list-view-item">
-                        <label class="list-view-item-content ">
-                            <span>下雨了</span>
+                            <span>原因</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
@@ -134,14 +128,14 @@
 
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>进水了</span>
+                            <span>原因</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
                     </li>
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>面瘫了</span>
+                            <span>原因</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
@@ -149,29 +143,57 @@
 
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>被门夹了</span>
+                            <span>原因</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
                     </li>
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>螺丝掉了</span>
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
                     </li>
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>漏油了</span>
+                            <span>原因</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
                     </li>
-                    
                     <li class="list-view-item">
                         <label class="list-view-item-content ">
-                            <span>原因太多了</span>
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
+                            <input type="radio" name="equip" />
+                            <span class="radio"></span>
+                        </label>
+                    </li>
+                    <li class="list-view-item">
+                        <label class="list-view-item-content ">
+                            <span>原因</span>
                             <input type="radio" name="equip" />
                             <span class="radio"></span>
                         </label>
@@ -182,7 +204,6 @@
         </section>
 
     </div>
-     
 </div>
 
 
@@ -191,7 +212,7 @@
     $('.lookup').click(function () {
         $($(this).attr('for')).addClass("active")
     })
-    $('#dp-taskAlarm .autoScroll').each(function(){
+    $('#dp-taskReport .autoScroll').each(function () {
         $(this).SetAutoScroll({})
     });
 
@@ -199,11 +220,16 @@
     //    alert(1);
     //});
 
-    $('#btn-taskAlarm').click(function () {
+    $('#btn-taskReport').click(function () {
         try {
             $(this).parents('.pop-panel').find('.close-panel-btn').click();
         } catch (e) {
             alert(e);
-        } 
+        }
+    })
+    console.log(1);
+
+    $('.reportDetail-item-alarm').click(function () {
+        $("#taskReport-chooseAlarmReason").addClass("active")
     })
 </script>
