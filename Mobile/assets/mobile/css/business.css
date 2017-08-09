@@ -194,6 +194,22 @@ background:#fff;
 /*#endregion*/
 
 /*#region 任务列表*/
+.tabs.taskList-tabs {
+     position: absolute;
+     /*height: 100%;*/ 
+    top: .88rem;
+    bottom: 0;
+    /*border-bottom: .88rem solid transparent;*/
+}
+
+.taskList-autoScroll {
+    position:relative;
+    height:100%;
+    border-bottom: .96rem solid transparent;
+
+       
+}
+
 .taskList > .taskItem {
     margin-top:10px;
     background:#fff;
@@ -213,16 +229,21 @@ background:#fff;
     font-size:.28rem;
     font-weight:normal;
      color:#333;
+    margin-top: .1rem;
 }
 .taskItem > .plantime {
-     font-size:.3rem;
+     margin-top: .1rem;
+     font-size:.28rem;
     font-weight:normal;
-    color:#888;
+    color:#666;
     display:flex;
 }
 .taskItem > .plantime .starttime,.taskItem > .plantime .endtime{
     padding-left:.3rem;
 }
+    .taskItem > .plantime .endtime {
+        margin-top:.08rem;
+    }
 .taskItem > .plantime .starttime .lab{
    color:#2d98e9
 }
@@ -231,7 +252,7 @@ background:#fff;
     }
       .taskItem > .proc {
         position:absolute;
-        right:.3rem;
+        right:.12rem;
         top:0;
         z-index:10;
         font-size:.3rem;
@@ -242,16 +263,36 @@ background:#fff;
             content:"";
             width: 0;
             height: 0;
-            border-top: 20px solid #EEB422;
-            border-right: 40px solid #EEB422;
-            border-left: 40px solid transparent;
-             border-bottom: 20px solid transparent;
+            border-top: .38rem solid #EEB422;
+            border-right: .48rem solid #EEB422;
+            border-left: .48rem solid transparent;
+             border-bottom: .38rem solid transparent;
             top:0;
             right:0;
            z-index:9;
         }
 /*#endregion*/
 
+
+/*#region 任务列表过滤筛选*/
+.modal-panel-chooseFilter {
+    right: 0;
+    width: 80%;
+    left: auto;
+        -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+    .modal-panel-chooseFilter .bottomButtons .btn {
+        border-top-width:1px
+    }
+
+    .modal-panel-chooseFilter .tabs {
+        position:absolute;
+        top:1.02rem;
+        bottom:.9rem;
+    }
+/*#endregion*/
 
 /*#region 任务详情*/
 .task-detail-info {
@@ -268,4 +309,19 @@ background:#fff;
     padding: .32rem .22rem;
     color: #FF703B;
 }
+/*#endregion*/
+
+
+/*#region 报警*/
+.div-alarmSelfReason {
+    padding:.2rem;
+
+}
+    .div-alarmSelfReason > textarea {
+        width:100%;
+        height:1.2rem;
+        resize:none;
+        border:1px solid #ccc
+    }
+
 /*#endregion*/

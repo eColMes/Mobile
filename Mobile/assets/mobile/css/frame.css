@@ -144,6 +144,7 @@ hr {
 /*#region 主体内容部分*/
 .main-content {
     border-top: .88rem solid transparent;
+    
     /*border-bottom: 56px solid transparent;*/
 }
 
@@ -397,6 +398,7 @@ hr {
         display:none;
          /*display: block;*/
          /*float: left;*/
+         position:relative;
     }
         .tabs > .tab.active {
             display:block;
@@ -642,8 +644,8 @@ hr {
         padding: .27rem 0;
         font-size: .34rem;
         border-right: 1px solid #fff;
-        border-top: 0;
-        border-bottom: 0;
+        border-top-width: 0;
+        border-bottom-width: 0;
     }
         .bottomButtons .btn:last-child {
             border-right:none;
@@ -1353,7 +1355,7 @@ input[type=checkbox] + .checkbox {
       position: absolute ;
 }*/
     .autoScroll .scroll, .nativeAutoScroll .scroll {
-        min-height: 101%;
+        min-height: 101%; 
     }
 .autoHorScroll {
     bottom:auto;
@@ -1407,4 +1409,31 @@ input[type=checkbox] + .checkbox {
 }
 
 
+/*#endregion*/
+
+
+/*#region 筛选样式*/
+.modal-panel-chooseFilter {
+    
+}
+.modal-panel-chooseFilter-header {
+        text-align: center;
+    padding: .2rem 0;
+    border-bottom: 1px solid #ccc;
+}
+    .modal-panel-chooseFilter-header > .task-buttons-tab > .btn {
+        border-color: #0894ec;
+        background: #fff;
+        color: #0894ec;
+        width:1.6rem;
+        color:#333;
+    }
+        .modal-panel-chooseFilter-header > .task-buttons-tab > .btn:not(:first-child) {
+            border-left:none;
+        }
+    .modal-panel-chooseFilter-header > .task-buttons-tab > .btn.active {
+        
+        background: #0894ec;
+        color: #fff;
+    }
 /*#endregion*/
