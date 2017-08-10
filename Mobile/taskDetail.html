@@ -272,7 +272,7 @@
             </a>
             <div class="menu">
                 <div class="btn">相关任务</div>
-                <div class="btn">附件</div> 
+                <div id="btn-task-taskAttachment" class="btn">附件</div> 
                 <div id="btn-task-taskReport" class="btn">任务汇报</div>
             </div>
         </div>
@@ -299,6 +299,10 @@
     $('#btn-task-taskReport').click(function () {
         taskFunctionBusiness.OpenPanel('taskReport.html');
     })
+    $('#btn-task-taskAttachment').click(function () {
+        taskFunctionBusiness.OpenPanel('taskAttachment.html');
+    })
+
     $('.btn-menu').click(function () {
         if ($(this).hasClass('active')) {
             $(this).removeClass('active')

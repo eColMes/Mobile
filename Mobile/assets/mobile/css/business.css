@@ -390,6 +390,76 @@ background:#fff;
         }
 /*#endregion*/
 
+/*#region 上传附件*/
+.taskAttachment-list {
+    position:relative;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+
+}
+.taskAttachment-list-item {
+    width: 1.52rem;
+    height: 1.52rem;
+    background: #eee; 
+    margin: .24rem .12rem;
+    position:relative;
+    background:#fff;
+   
+}
+.taskAttachment-list-item >label{
+    width: 100%;
+    height: 100%;
+    display: block;
+    border:1px dashed #ccc;
+    
+    position:relative;
+    border-radius:.2rem;
+}
+    .taskAttachment-list-item > label:after {
+        content: '\e6f5';
+        position: absolute;
+        font-size: 20px;
+        font-family: iconfont;
+        font-size: 1rem;
+        text-align: center;
+        width: 100%;
+        top: 50%;
+        margin-top: -0.6rem;
+        color:#999;
+    }
+.taskAttachment-list-item >label>input[type=file]{
+   display:none;
+}
+    .taskAttachment-list-item img ,.taskAttachment-list-item video{
+        width: 100%;
+        height: 100%;
+        border-radius: .2rem;
+    }
+        .taskAttachment-list-item img ~ label  ,.taskAttachment-list-item video~ label{
+            display:none;
+        }
+
+    .taskAttachment-list-item .icon {
+        display: none;
+    }
+    .taskAttachment-list-item img ~ .icon,.taskAttachment-list-item video~ .icon {
+        display: block;
+        position: absolute;
+        right: -.16rem; 
+        top: -.16rem; 
+        z-index: 1;
+        background: #000;
+        opacity: 0.6;
+        border-radius: 50%;
+        color: #fff;
+        font-size: .24rem;
+        text-align: center;
+        height: .42rem;
+        width: .42rem;
+        line-height: .42rem;
+    }
+/*#endregion*/
 
 /*#region 收料确认*/
 /*#region 收料确认列表*/

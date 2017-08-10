@@ -1,0 +1,99 @@
+﻿<div id="dp-taskAttachment" class="pop-panel" style="">
+    <header class="pop-panel-titlebar">
+        <span class="pop-panel-titlebar-title"> 附件</span>
+        <a class="close-panel-btn  pull-right iconfont  icon-chuyidong " href="javascript:"> </a>
+    </header>
+
+    <section class="pop-pane-content">
+        <ul class="taskAttachment-list ">
+            <li class="taskAttachment-list-item">
+                <label class="file">
+                    <input type="file"/>
+                </label>
+                <a class="icon iconfont icon-chuyidong" onclick="alert(1)"></a>
+            </li>
+            <li class="taskAttachment-list-item">
+                <label class="file">
+                    <input type="file" />
+                </label>
+            </li>
+            <li class="taskAttachment-list-item">
+                <label class="file">
+                    <input type="file" />
+                </label>
+            </li>
+            <li class="taskAttachment-list-item">
+                <label class="file">
+                    <input type="file" />
+                </label>
+            </li>
+            <li class="taskAttachment-list-item">
+                <label class="file">
+                    <input type="file" />
+                </label>
+            </li>
+        </ul>
+
+    </section>
+    <footer class="bottomButtons">
+        <a id="btn-taskConfirm" href="javascript:" class="btn btn-block  btn-warning">上传</a>
+    </footer>
+
+    
+</div>
+
+<script src="assets/mobile/js/file.js"></script>
+<script>
+    console.log(1);
+    $('.lookup').click(function () {
+        $($(this).attr('for')).addClass("active")
+    })
+    $('#dp-taskConfirm .autoScroll').each(function () {
+        $(this).SetAutoScroll({})
+    });
+
+    //$('#dp-taskConfirm').find('.close-panel-btn').off('click').on('click', function () {
+    //    alert(1);
+    //});
+
+    $('#btn-taskConfirm').click(function () {
+        try {
+            $(this).parents('.pop-panel').find('.close-panel-btn').click();
+        } catch (e) {
+            alert(e);
+        }
+    })
+
+
+    $('.taskAttachment-list').on('change', '.taskAttachment-list-item>label>input[type=file]', function () {
+        var $this = $(this);
+        var file = this.files[0];
+        var url = URL.createObjectURL(file);
+        if ($.File.IsImage(file.name)) {
+            var img = '<img src="' + url + '" alt=""/>';
+            $this.parent().before(img);
+        } else if($.File.IsVideo(file.name)){
+            var video = '<video src="' + url + '" alt=""/>';
+            $this.parent().before(video );
+        }
+ 
+    })
+
+
+    $('.taskAttachment-list').on('click','img',function () {
+        $.ViewImage({
+            src: $(this).attr("src"),
+            onDelete: function () {
+
+            }
+        })
+    })
+    $('.taskAttachment-list').on('click', 'video', function () {
+        $.File.ViewVideo({
+            src: $(this).attr("src"),
+            onDelete: function () {
+
+            }
+        })
+    })
+</script>

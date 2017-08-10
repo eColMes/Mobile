@@ -19,6 +19,11 @@ $(function () {
             ////
             ////tap: true,
             ////infinite
+            //scrollbars: true,
+            //mouseWheel: true,
+            //interactiveScrollbars: true,
+            //shrinkScrollbars: 'scale',
+            //fadeScrollbars: true,
             click: true,
             ////probe
             ////probeType: 1,
@@ -529,10 +534,10 @@ $(function () {
 $(function () {
     $('.collapse-panel').on('click', '.btn-collapse-panel', function () {
         var $panel = $(this).parents('.collapse-panel').first();
-        if ($panel.hasClass('active')) {
-            $panel.removeClass('active');
+        if ($panel.hasClass('close')) {
+            $panel.removeClass('close');
         } else {
-            $panel.addClass('active');
+            $panel.addClass('close');
         }
         var $scroll = $(this).parents('.autoScroll');
         //刷新滚动区域
@@ -544,9 +549,80 @@ $(function () {
                 }
             })
         })
-
-       
-       
        
     })
+})
+
+//图片浏览
+
+$(function () {
+    $.ViewImage= function (param) {
+        var option = {
+            imageType: 0,//0 表示base64，或者url， 1 表示input的html元素,2 表示 其他img 标签
+            src: "",
+            onDelete: function () {
+
+            },
+            onClose: function () {
+
+            }
+        }
+        option = $.extend(option, param);
+
+        var html = '<div class="imgFullScreenView">' +
+            '<img class="imgPreview" src="'+ option.src + '" >' +
+            '<div class="buttons"><a class="btn btn-block icon iconfont icon-arrow-left" events="onClose" ></a><a class="btn btn-block icon iconfont icon-shanchu1" events="onDelete onClose" ></a></div>  </div>';
+
+        var $html = $(html).appendTo($('body'));
+       $html.on('click', '.btn', function () {
+            $(this).attr('events').split(' ').forEach(function (v) {
+                if (v && option[v]) {
+                    option[v].call(this);
+                }
+            })
+            $html.remove();
+            
+        })
+
+    }
+
+
+    $.File = {
+        IsImage: function (fileName) {
+            return fileName.match(/.jpg|.gif|.png|.bmp/i) ? true : false;
+        },
+        IsVideo: function (fileName) {
+            return fileName.match(/.mp4/i) ? true : false;
+        },
+        ViewVideo: function (param) {
+            var option = {
+                imageType: 0,//0 表示base64，或者url， 1 表示input的html元素,2 表示 其他img 标签
+                src: "",
+                onDelete: function () {
+
+                },
+                onClose: function () {
+
+                }
+            }
+            option = $.extend(option, param);
+
+            var html = '<div class="imgFullScreenView">' +
+                '<video class="imgPreview" autoplay="autoplay" src="' + option.src + '" >' +
+                '<div class="buttons"><a class="btn btn-block icon iconfont icon-arrow-left" events="onClose" ></a><a class="btn btn-block icon iconfont icon-shanchu1" events="onDelete onClose" ></a></div>  </div>';
+
+            var $html = $(html).appendTo($('body'));
+            $html.on('click', '.btn', function () {
+                $(this).attr('events').split(' ').forEach(function (v) {
+                    if (v && option[v]) {
+                        option[v].call(this);
+                    }
+                })
+                $html.remove();
+
+            })
+        }
+
+
+    }
 })

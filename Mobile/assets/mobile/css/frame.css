@@ -6,6 +6,7 @@
     pop弹出页面   30
     pop 底部按钮  35
     pop-sub 二级弹出 40
+    图片预览 70
     loading 100
     
     
@@ -584,7 +585,7 @@ searchBox > input[type=search]:focus {
         font-size:.34rem;
         color:#111;
         font-weight:400;
-      
+       border-bottom: 1px solid #ccc;
         position:relative;
         align-items:center;
         height:.8rem;
@@ -600,25 +601,28 @@ searchBox > input[type=search]:focus {
             width: .92rem;
             transform-origin: center;
             transition: transform .3s;
+              transform: rotate(-180deg);
         }
 
-    .collapse-panel.active > .title {
-        border-bottom: 1px solid #ccc;
+    .collapse-panel.close > .title {
+        border-bottom: 0
     }
-        .collapse-panel.active > .title > .btn-collapse-panel {
-            transform: rotate(-180deg);
+        .collapse-panel.close > .title > .btn-collapse-panel {
+          
+            transform: rotate(0);
         }
 
 .collapse-panel-content {
-    display:none;
+    display:block;
     padding:.2rem;
-    height:0;
+      height:auto;
     overflow:hidden;
     transition:height .3s;
 }
-.collapse-panel.active > .collapse-panel-content {
-    display:block;
-    height:auto;
+.collapse-panel.close > .collapse-panel-content {
+    display:none;
+     height:0;
+  
 }
 /*#endregion*/
 
@@ -916,7 +920,7 @@ searchBox > input[type=search]:focus {
   padding: 15px;
   border-radius: 7px 7px 0 0;
   position: relative;
-  background: #e8e8e8;
+  background: #FFF;
 }
 .modal-inner:after {
   content: '';
@@ -966,7 +970,7 @@ searchBox > input[type=search]:focus {
   line-height: .88rem;
   text-align: center;
   color: #0894ec;
-  background: #e8e8e8;
+  background: #FFF;
   display: block;
   position: relative;
   white-space: nowrap;
@@ -1611,4 +1615,58 @@ input[type=checkbox] + .checkbox {
         background: #0894ec;
         color: #fff;
     }
+/*#endregion*/
+
+
+/*#region 图片预览*/
+
+.imgFullScreenView {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#000;
+    z-index:70;
+    overflow: scroll;
+}
+    .imgFullScreenView > .imgPreview {
+        position: absolute;
+        top: 0;
+     
+        left: 0;
+        background: center center no-repeat;
+        background-size: contain;
+        width: 100%;
+        top: 50%;
+        margin-top: -50%;
+        margin-bottom:1rem;
+    }
+    .imgFullScreenView > .buttons {
+        height: 1rem;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background: #333;
+        width: 100%;
+        
+        align-items:center;
+    }
+        .imgFullScreenView > .buttons > .btn {
+            background: transparent;
+            border: null;
+            border: 0;
+            color: #fff;
+            font-size: .4rem;
+            text-align: center;
+            display: block;
+            width: 100%;
+            /* height: 100%; */
+            line-height: -3;
+            height: 1rem;
+            line-height: .7rem;
+        }
+            .imgFullScreenView > .buttons > .btn:not(:last-child) {
+                border-right:1px solid #666;
+            }
 /*#endregion*/
