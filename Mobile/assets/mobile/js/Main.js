@@ -2,6 +2,12 @@
 * 滚动设置
 */
 $(function () {
+    function scrollEntity() {
+        this.id="",
+        this.$dom=null,
+        this.scroll = {}
+    }
+
     $.fn.SetAutoScroll = function (param) {
         var myScroll = new IScroll($(this)[0], {
             //scrollbars: 'custom',
@@ -37,24 +43,18 @@ $(function () {
                 scrollY: false
             }
         }
-        $(this).SetAutoScroll(param);
+        var autoScroll = $(this).SetAutoScroll(param);
+        var entity = new scrollEntity();
+        entity.scroll = autoScroll;
+        entity.element = this;
+        entity.id = $(this).attr("id");
+
+        window.autoScrolls || (window.autoScrolls = []);
+        window.autoScrolls.push(entity);
+     
     })
 
-    //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
-    //    capture: false,
-    //    passive: false
-    //} : false);
-    //function isPassive() {
-    //    var supportsPassiveOption = false;
-    //    try {
-    //        addEventListener("test", null, Object.defineProperty({}, 'passive', {
-    //            get: function () {
-    //                supportsPassiveOption = true;
-    //            }
-    //        }));
-    //    } catch (e) { }
-    //    return supportsPassiveOption;
-    //}
+   
 
 })
 
@@ -401,7 +401,7 @@ $(function () {
           
         $._addModalToModalContainer($model);
 
-        var ld = $.Loading();
+        //var ld = $.Loading();
         var drawHtml = function (html) {
            
             $model.html(html);
@@ -414,7 +414,7 @@ $(function () {
             $.OpenModal($model);
             
             $model.transitionEnd(function () {
-                $.HideLoading(ld)
+                //$.HideLoading(ld)
                
             });
         }
@@ -522,5 +522,31 @@ $(function () {
 $(function () {
     $('body').on('click', '.pop-panel-sub>.pop-panel-titlebar>.pop-panel-sub-back', function () {
         $(this).parent().parent().removeClass("active");
+    })
+})
+
+//折叠面板
+$(function () {
+    $('.collapse-panel').on('click', '.btn-collapse-panel', function () {
+        var $panel = $(this).parents('.collapse-panel').first();
+        if ($panel.hasClass('active')) {
+            $panel.removeClass('active');
+        } else {
+            $panel.addClass('active');
+        }
+        var $scroll = $(this).parents('.autoScroll');
+        //刷新滚动区域
+        $scroll.each(function () {
+            var _this = this;
+            window.autoScrolls.forEach(function (v) {
+                if (v.element && v.element.parentElement && v.element == _this) {
+                    v.scroll.refresh();
+                }
+            })
+        })
+
+       
+       
+       
     })
 })

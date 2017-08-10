@@ -389,3 +389,99 @@ background:#fff;
             color:#fff;
         }
 /*#endregion*/
+
+
+/*#region 收料确认*/
+/*#region 收料确认列表*/
+.receiveMaterialList {
+    background:none;
+}
+.receiveMaterialItem {
+    margin:.2rem 0;
+    background:#fff;
+}
+.receiveMaterialItem:after{
+    display:none;
+}
+.receiveMaterialItem .lingliaodan {
+    color:#111;
+    font-size:.32rem;
+}
+    .receiveMaterialItem .kufang-peisonggongwei {
+        margin-top: .1rem;
+        font-size: .28rem;
+        color: #666;
+    }
+
+    .receiveMaterialItem .peisonggongwei {
+        margin-left: .48rem;
+    }
+    .receiveMaterialItem .proc-plancount {
+         margin-top:.1rem;
+        font-size:.28rem;
+        color:#888;
+    }
+    .receiveMaterialItem .plancount {
+        margin-left: .48rem;
+    }
+/*#endregion*/
+
+/*#region 收料确认详情*/
+.receiveMatarialDetail-materialListTitle {
+    height:.88rem;
+    align-items:center;
+    font-size:.28rem;
+    color:#999;
+    text-align:center;
+    background:#fff;
+    /*border-top:1px solid #ccc;*/
+     border-bottom:1px solid #ccc;
+     /*padding:0 .24rem;*/
+}
+
+
+.receiveMatarialDetail-materialList {
+    
+}
+    .receiveMatarialDetail-materialList > .materialList-item {
+        background:#fff;
+        margin-bottom:.16rem;
+        /*padding:.32rem .24rem;*/
+        
+    }
+        .receiveMatarialDetail-materialList > .materialList-item > .materialList-item-content {
+            padding: .32rem 0;
+        }
+        .receiveMatarialDetail-materialList > .materialList-item .materialName,
+        .receiveMatarialDetail-materialList > .materialList-item .materialSymbol ,
+         .receiveMatarialDetail-materialList > .materialList-item .materialList-item-num  
+        {
+            font-size:.28rem;
+            color:#333;
+            text-overflow:ellipsis;
+            overflow:hidden;
+        }
+
+        .receiveMatarialDetail-materialList > .materialList-item .materialList-item-curNum>input[type=number] {
+            height:.56rem;
+            width:70%;
+            color:#333;
+            border:1px solid #ccc ;
+            text-align:center;
+        }
+
+        /*按钮*/
+.materialList-item-btnList {
+
+    border-top:1px solid #ccc;
+    
+    text-align:right;
+    
+}
+
+    .materialList-item-btnList > .btn {
+       
+        margin:.16rem .24rem .16rem 0;
+    }
+/*#endregion*/
+/*#endregion*/

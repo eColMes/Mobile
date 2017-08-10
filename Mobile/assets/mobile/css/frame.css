@@ -17,6 +17,79 @@ body.modal-open {
         height: 100%;
 }
 
+/*#region 栅格*/
+
+/*
+* 栅格
+*
+*
+*/
+
+.row {
+    overflow: hidden;
+    display:flex;
+    align-items: center;
+     text-align:center;
+}
+
+    .row > [class*="col-"], .row > [class*="tablet-"] {
+        box-sizing: border-box;
+        float: left;
+        /*background-color:gray;*/
+        padding: 5px;
+        
+    }
+
+.col-1 {
+    width: 8.3333%
+}
+
+.col-2 {
+    width: 16.6666%
+}
+
+.col-3 {
+    width: 25%
+}
+
+.col-4 {
+    width: 33.3333%
+}
+
+.col-5 {
+    width: 41.66666%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.3333%;
+}
+
+.col-8 {
+    width: 66.6666%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.3333%;
+}
+
+.col-11 {
+    width: 91.6666%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+/*#endregion*/
+
 /*#region 多屏幕适配*/
 html {
     font-size: 50px !important;
@@ -64,6 +137,9 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+}
+li {
+    list-style: none;
 }
 /*火狐去除虚线框*/
  ::-moz-focus-inner{outline:none;}
@@ -197,7 +273,7 @@ hr {
     white-space: nowrap;
     color: #333;
     border: 1px solid #ccc;
-    font-size:.32rem;
+    font-size:.28rem;
 }
 
 /*#region btn 颜色*/
@@ -240,8 +316,8 @@ hr {
 
 .btn-warning {
     color: white;
-    border-color: #ff6600;
-    background-color: #ff6600;
+    border-color:#FF7436;
+    background-color: #FF7436;
 }
 
     .btn-warning:active {
@@ -273,6 +349,48 @@ hr {
         background-color: #3b28a3;
     }
 /*#endregion*/
+
+/*#region outline*/
+/*按钮边框（是否填充）样式*/
+.btn-info.btn-outline {
+    color: #0f87e6;
+    border-color: #0f87e6;
+    background-color: transparent;
+}
+
+    .btn-info.btn-outline:active {
+        color: #fff;
+        background: #0f87e6;
+        border-color: #0f87e6;
+    }
+.btn-warning.btn-outline {
+    color: #FF7436;
+    background: transparent;
+    border-color: #FF7436;
+}
+    .btn-warning.btn-outline:active {
+        color: #fff;
+        background: #FF7436;
+        border-color: #FF7436;
+    }
+/*#endregion*/
+
+
+/*#endregion*/
+
+/*#region 圆角*/
+.br-s {
+    border-radius:.06rem;
+}
+.br-m {
+    border-radius:.1rem;
+}
+.br-l {
+    border-radius:.2rem;
+}
+.br-c {
+    border-radius:50%;
+}
 /*#endregion*/
 
 /*#region 右侧 箭头*/
@@ -458,14 +576,50 @@ searchBox > input[type=search]:focus {
 /*#region 折叠面板*/
 .collapse-panel {
     background:#fff;
+    margin-bottom:.2rem;
 }
+
     .collapse-panel > .title {
         padding:.2rem .3rem;
-        font-size:.35rem;
+        font-size:.34rem;
         color:#111;
         font-weight:400;
-        border-bottom:1px solid #ccc;
+      
+        position:relative;
+        align-items:center;
+        height:.8rem;
+        line-height:.4rem;
     }
+        .collapse-panel > .title > .btn-collapse-panel {
+            position: absolute;
+            right: .3rem;
+            padding: 0 .3rem;
+            border: 0;
+            font-size: .32rem;
+            height: .32rem;
+            width: .92rem;
+            transform-origin: center;
+            transition: transform .3s;
+        }
+
+    .collapse-panel.active > .title {
+        border-bottom: 1px solid #ccc;
+    }
+        .collapse-panel.active > .title > .btn-collapse-panel {
+            transform: rotate(-180deg);
+        }
+
+.collapse-panel-content {
+    display:none;
+    padding:.2rem;
+    height:0;
+    overflow:hidden;
+    transition:height .3s;
+}
+.collapse-panel.active > .collapse-panel-content {
+    display:block;
+    height:auto;
+}
 /*#endregion*/
 
 /*#region 时间轴*/
@@ -1388,6 +1542,11 @@ input[type=checkbox] + .checkbox {
     overflow-y: scroll;
 }
 
+.autoScroll.main-list-autoScroll {
+    position: absolute;
+    top: 1.84rem;
+    bottom: 0;
+}
 /*#endregion*/
 
 
