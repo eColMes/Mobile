@@ -44,8 +44,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Mobile", "Mobile\", "{9A2FE
 		SlnRelativePath = "Mobile\"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testDll", "testDll\testDll.csproj", "{C3411A6B-7947-4DE6-B3E7-DAF614220FF2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,10 +58,6 @@ Global
 		{9A2FEB0F-637D-45B3-ADBF-B500563E7D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A2FEB0F-637D-45B3-ADBF-B500563E7D77}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A2FEB0F-637D-45B3-ADBF-B500563E7D77}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{C3411A6B-7947-4DE6-B3E7-DAF614220FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3411A6B-7947-4DE6-B3E7-DAF614220FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3411A6B-7947-4DE6-B3E7-DAF614220FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3411A6B-7947-4DE6-B3E7-DAF614220FF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
