@@ -67,14 +67,20 @@
 
     $('.taskAttachment-list').on('change', '.taskAttachment-list-item>label>input[type=file]', function () {
         var $this = $(this);
+        
         var file = this.files[0];
         var url = URL.createObjectURL(file);
+      
         if ($.File.IsImage(file.name)) {
             var img = '<img src="' + url + '" alt=""/>';
             $this.parent().before(img);
-        } else if($.File.IsVideo(file.name)){
+        } else if ($.File.IsVideo(file.name)) {
+
             var video = '<video src="' + url + '" alt=""/>';
-            $this.parent().before(video );
+            $this.parent().before(video);
+
+        } else {
+            $.Alert("未能识别该格式");
         }
  
     })

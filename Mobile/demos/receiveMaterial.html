@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, user-scalable=no">
+ 
+
+    <link href="../assets/mobile/font/iconfont.css" rel="stylesheet" />
+    <link href="../assets/mobile/css/frame.css" rel="stylesheet" />
+    <link href="../assets/mobile/css/business.css" rel="stylesheet" />
+     
+    <script src="../assets/mobile/js/zepto.min.js"></script>
+    <script src="../assets/mobile/js/plugins/IScroll/iscroll-probe.js"></script>
+    <script src="../assets/mobile/js/Main.js"></script>
+    <script src="../assets/mobile/js/plugins/knockout-3.3.0/knockout.debug.js"></script>
+</head>
+
+<body >
+    <header class="titlebar">
+        <div class="title">
+            收料确认
+        </div>
+    </header>
+
+    <section class="main-content"> 
+        <div class="searchBox">
+            <input type="search" placeholder="搜索" data-bind="value:searchText,event:{keyup:searchKeyUp}" />
+            <i class="iconfont icon-sousuo"></i> 
+        </div>
+        <div class="scrollWarpper main-list-autoScroll" id="receiveList">
+            <ul class="receiveMaterialList scroll" data-bind="foreach:receiveList">
+                <li class="receiveMaterialItem list-view-item" data-bind="click:click">
+                    <a class="navigate-right" href="receiveMaterialDetail.html">
+                        <div class="lingliaodan">
+                            <span class="lingliaodan-title">领料单号：</span>
+                            <span class="lingliaodan-text" data-bind="text:csymbol"></span>
+                        </div>
+
+                        <div class="kufang-peisonggongwei">
+                            <span class="kufang">
+                                <span class="kufang-title">库房:</span>
+                                <span class="kufang-text" data-bind="text:kufang">3号仓库</span>
+                            </span>
+                            <span class="peisonggongwei">
+                                <span class="peisonggongwei-title">配送工位:</span>
+                                <span class="peisonggongwei-text" data-bind="text:kufang"> </span>
+                            </span>
+                        </div>
+                        <div class="proc-plancount">
+                            <span class="proc">
+                                <span class="proc-title">工序号:</span>
+                                <span class="proc-text" data-bind="text:cproc"></span>
+                            </span>
+                            <span class="plancount">
+                                <span class="plancount-title">计划种类/确认种类:</span>
+                                <span class="plancount-text" data-bind="text:planAndConfirmCount()+'/'+1">25/2</span>
+                            </span>
+                        </div>
+
+
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </section>
+
+    
+   
+</body>
+</html>
+<script>
+    var vm;
+    $(function () {
+         vm = new receiveListViewModel().init();
+        ko.applyBindings(vm);
+    })
+   
+    function receiveListViewModel() {
+        this.listScroll = null;
+        this.searchText=ko.observable();
+        this.receiveList = ko.observableArray();
+        this.searchKeyUp = function (d,e) {
+            console.dir(e);
+            if (e.keyCode === 13) {
+                this.refresh();
+            }
+        }
+        this.refresh = function () {
+            this.receiveList.removeAll();
+            var s = Math.random() * 1000000000 % 20;
+            for (var i = 0; i < s; i++) {
+                var zz = {
+                    csymbol: ko.observable("LLD-0001-BLD-0001"),
+                    cproc: ko.observable("10"),
+                    kufang: ko.observable("1号库房"),
+                    planAndConfirmCount: ko.observable(1),
+                    click: function (d,e) {
+                        d.csymbol(Math.random());
+                    }
+                }
+                this.receiveList.push(zz)
+            }
+            this.listScroll.refresh();
+        }
+        this.init = function () {
+            this.listScroll = $('#receiveList').SetAutoScroll();
+            var vm = this;
+            setTimeout(function () {
+                vm.refresh();
+            }, 10)
+            return this;
+        }
+    }
+  
+</script>

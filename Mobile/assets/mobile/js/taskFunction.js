@@ -8,12 +8,15 @@ var taskFunctionBusiness = {
 
     },
     OpenPanel: function (url) {
+        var zz =$.Loading();
         this.GetPanelHtml(url, function (html) {
             $.OpenPanel({
                 content: html,
                 css: "modal-panel-taskOperator "
             })
+            $.HideLoading(zz);
         })
+      
     },
     GetPanelHtml: function (url, callback) {
         var _this = this;

@@ -9,6 +9,7 @@ $(function () {
     }
 
     $.fn.SetAutoScroll = function (param) {
+        param = param || {}
         var myScroll = new IScroll($(this)[0], {
             //scrollbars: 'custom',
             ////topOffset:$pd[0].offsetHeight,
@@ -592,7 +593,7 @@ $(function () {
             return fileName.match(/.jpg|.gif|.png|.bmp/i) ? true : false;
         },
         IsVideo: function (fileName) {
-            return fileName.match(/.mp4/i) ? true : false;
+            return fileName.match(/.mp4|.mov/i) ? true : false;
         },
         ViewVideo: function (param) {
             var option = {
@@ -607,8 +608,8 @@ $(function () {
             }
             option = $.extend(option, param);
 
-            var html = '<div class="imgFullScreenView">' +
-                '<video class="imgPreview" autoplay="autoplay" src="' + option.src + '" >' +
+            var html = '<div class="videoFullScreenView">' +
+                '<video class="videoPreview" autoplay="autoplay" src="' + option.src + '" />' +
                 '<div class="buttons"><a class="btn btn-block icon iconfont icon-arrow-left" events="onClose" ></a><a class="btn btn-block icon iconfont icon-shanchu1" events="onDelete onClose" ></a></div>  </div>';
 
             var $html = $(html).appendTo($('body'));
