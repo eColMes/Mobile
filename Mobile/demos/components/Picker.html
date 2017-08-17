@@ -1,0 +1,20 @@
+﻿<div class="pop-panel-sub">
+    <header class="pop-panel-titlebar">
+        <span class="pop-panel-titlebar-title" data-bind="text:title"> </span>
+        <a class="pull-left iconfont icon-arrow-left pop-panel-sub-back" href="javascript:"></a>
+    </header>
+    <section class="pop-panel-content  autoScroll">
+        <div class="scroll">
+            <ul class="list-view row-list-select" data-bind="foreach:list"> 
+                <li class="list-view-item">
+                    <label class="list-view-item-content ">
+                        <span data-bind="text:name"></span>
+                        <input type="radio" name="equip" data-bind="checked:$parent.selected;value:value"  />
+                        <span class="radio"></span>
+                    </label>
+                </li>
+            </ul>
+        </div> 
+    </section>
+</div>
+

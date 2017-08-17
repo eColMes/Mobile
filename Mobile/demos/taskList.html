@@ -18,8 +18,7 @@
 
 <body >
     <header class="titlebar">
-        <div class="title">
-            <div data-bind="text:taskList().length"> </div>
+        <div class="title"> 
             <div class="buttons-tab task-buttons-tab">
                 <a href="javascript:" for="tab1-1" class="tab-link btn active">确认</a>
                 <a href="javascript:" for="tab1-2" class="tab-link btn">执行</a>
@@ -309,7 +308,7 @@
         </div>
     </section>
 
-    <section class="modal modal-panel modal-panel-chooseFilter">
+    <section class="modal modal-panel modal-panel-chooseFilter" id="chooseFilter">
         <header class="modal-panel-chooseFilter-header">
             <div class="buttons-tab task-buttons-tab">
                 <a href="javascript:" for="filterTab-equip" class="tab-link btn active">设备</a>
@@ -322,109 +321,15 @@
                 <div id="filterTab-equip" class="tab active">
                     <section class="pop-panel-content  autoScroll">
                         <div class="scroll">
-                            <ul class="list-view row-list-select">
+                            <ul class="list-view row-list-select" data-bind="foreach:list">
                                 <li class="list-view-item">
                                     <label class="list-view-item-content ">
-                                        <span>工作中心1</span>
-                                        <input type="radio" name="equip">
+                                        <span data-bind="text:name"></span>
+                                        <input type="radio" name="equip" data-bind="checked:$parent.seleted($data),checkedValue:value">
                                         <span class="radio"></span>
                                     </label>
                                 </li>
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>工作中心2</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
-                                <li class="list-view-item">
-                                    <label class="list-view-item-content ">
-                                        <span>原因</span>
-                                        <input type="radio" name="equip">
-                                        <span class="radio"></span>
-                                    </label>
-                                </li>
+                               
                             </ul>
                         </div>
 
@@ -508,6 +413,23 @@
 </body>
 </html>
 <script>
+    var vm = {
+        list: ko.observableArray([]),
+        seleted:ko.observable({})
+    }
+    for (var i = 0; i < 10; i++) {
+        var z = {
+            id: ko.observable(i),
+            name: ko.observable("工作中心" + i),
+            value:ko.observable("value"+i)
+        }
+        vm.list.push(z);
+    }
+    ko.applyBindings(vm,document.getElementById("chooseFilter"))
+
+</script>
+
+<script>
     $('#btn-taskFilter').click(function () {
         $('.modal-panel-chooseFilter').addClass('modal-in');
     })
@@ -518,29 +440,6 @@
 
 </script>
 <script>
-    var modal = {
-        taskListInfo: {
-            taskList: [],
-            pageIndex: 1,
-            pageSize:20
-        },
-        buttons: [
-            {
-                id: "",
-                text: "",
-                url: "",
-                callMethod:""
-            }
-        ]
-
-    }
-
-    function taskListViewModel() {
-        this.taskList = ko.observableArray();
-        this.taskPage = ko.observable();
-    }
-    var vm = new taskListViewModel();
-    ko.applyBindings(vm)
-
+  
 
 </script>
